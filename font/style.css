@@ -1,0 +1,93 @@
+@font-face {
+  font-family: 'stix-21-icons';
+  src:  url('fonts/stix-21-icons.eot?26in7p');
+  src:  url('fonts/stix-21-icons.eot?26in7p#iefix') format('embedded-opentype'),
+    url('fonts/stix-21-icons.ttf?26in7p') format('truetype'),
+    url('fonts/stix-21-icons.woff?26in7p') format('woff'),
+    url('fonts/stix-21-icons.svg?26in7p#stix-21-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="stix21-"], [class*=" stix21-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'stix-21-icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.stix21-Attack_Pattern:before {
+  content: "\e900";
+}
+.stix21-Campaign:before {
+  content: "\e901";
+}
+.stix21-Course_of_Action:before {
+  content: "\e902";
+}
+.stix21-Grouping:before {
+  content: "\e903";
+}
+.stix21-Identity:before {
+  content: "\e904";
+}
+.stix21-Incident:before {
+  content: "\e905";
+}
+.stix21-Indicator:before {
+  content: "\e906";
+}
+.stix21-Infrastructure:before {
+  content: "\e907";
+}
+.stix21-Intrusion_Set:before {
+  content: "\e908";
+}
+.stix21-Location:before {
+  content: "\e909";
+}
+.stix21-Malware_Analysis:before {
+  content: "\e90a";
+}
+.stix21-Malware_Family:before {
+  content: "\e90b";
+}
+.stix21-Malware:before {
+  content: "\e90c";
+}
+.stix21-Note:before {
+  content: "\e90d";
+}
+.stix21-Observed_Data:before {
+  content: "\e90e";
+}
+.stix21-Opinion:before {
+  content: "\e90f";
+}
+.stix21-Relationship:before {
+  content: "\e910";
+}
+.stix21-Report:before {
+  content: "\e911";
+}
+.stix21-Sighting:before {
+  content: "\e912";
+}
+.stix21-Threat_Actor:before {
+  content: "\e913";
+}
+.stix21-Tool:before {
+  content: "\e914";
+}
+.stix21-Vulnerability:before {
+  content: "\e915";
+}
