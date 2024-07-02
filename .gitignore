@@ -1,5 +1,2 @@
-.vscode
-**/.DS_Store*
-*.zip
-STIX_2.1 entity icons
-README.pdf
+.DS_Store
+stix_icons-venv

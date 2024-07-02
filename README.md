@@ -6,33 +6,7 @@ stix-icons is a collection of colourful and clean icons for use in software, tra
 
 ## Content
 
-### Formats
 
-The icons are provided in three versions: color, black, and white. On top of that there are two variations provided: with and without a 'circle' behind the icons.
-
-Within the folders below you can choose the icons that suite your needs.
-
-* **[colorRGB](colorRGB)**: colorRGB Icons
-  * **[Normal](colorRGB/normal)**: 
-    * **[SVG](colorRGB/normal/SVG)**: Normal icons in SVG format
-    * **[PNG](colorRGB/normal/PNG)**: Normal icons in PNG format in two sizes: 128 and 1024 pixels wide
-  * **[Round](colorRGB/round)**: 
-    * **[SVG](colorRGB/round/SVG)**: Round icons in SVG format
-    * **[PNG](colorRGB/round/PNG)**: Round icons in PNG format in two sizes: 128 and 1024 pixels wide
-* **[White](White)**: White  Icons
-  * **[Normal](White/normal)**: 
-    * **[SVG](White/normal/SVG)**: Normal icons in SVG format
-    * **[PNG](White/normal/PNG)**: Normal icons in PNG format in two sizes: 128 and 1024 pixels wide
-  * **[Round](White/round)**: 
-    * **[SVG](White/round/SVG)**: Round icons in SVG format
-    * **[PNG](White/round/PNG)**: Round icons in PNG format in two sizes: 128 and 1024 pixels wide
-* **[Black](Black)**: Black Icons
-  * **[Normal](Black/normal)**: 
-    * **[SVG](Black/normal/SVG)**: Normal icons in SVG format
-    * **[PNG](Black/normal/PNG)**: Normal icons in PNG format in two sizes: 128 and 1024 pixels wide
-  * **[Round](Black/round)**: 
-    * **[SVG](Black/round/SVG)**: Round icons in SVG format
-    * **[PNG](Black/round/PNG)**: Round icons in PNG format in two sizes: 128 and 1024 pixels wide
 
 ### STIX Icons Available
 
@@ -133,6 +107,22 @@ WIP
 Relationship | ![Relationship](./colorRGB/normal/PNG/128w/Relationship.png) | ![Relationship](./colorRGB/round/PNG/128w/Relationship_round.png) | ![Relationship](./Black/normal/PNG/128w/Relationship.png) | ![Relationship](./Black/round/PNG/128w/Relationship_round.png) | ![Relationship](./White/normal/PNG/128w/Relationship.png) | ![Relationship](./White/round/PNG/128w/Relationship_round.png)
 Sighting | ![Sighting](./colorRGB/normal/PNG/128w/Sighting.png) | ![Sighting](./colorRGB/round/PNG/128w/Sighting_round.png) | ![Sighting](./Black/normal/PNG/128w/Sighting.png) | ![Sighting](./Black/round/PNG/128w/Sighting_round.png) | ![Sighting](./White/normal/PNG/128w/Sighting.png) | ![Sighting](./White/round/PNG/128w/Sighting_round.png)
 
+## Generating the objects
+
+This 
+
+```shell
+# clone the latest code
+git clone https://github.com/muchdogesec/stix_icons
+# create a venv
+cd stix_icons
+python3 -m venv stix_icons-venv
+source stix_icons-venv/bin/activate
+# install requirements
+pip3 install -r requirements.txt
+```
+
+Now modify your icons
 ## Credits
 
 [This work is an expansion of the STIX objects created by EclecticIQ](https://github.com/eclecticiq/stix-icons/).
