@@ -100,6 +100,8 @@ WIP
 24. User Agent
   * https://fontawesome.com/icons/browser?f=classic&s=solid
 
+#### SMOs
+
 #### SROs
 
   Object         |     RGB   | RGB, circle | Black | Black, circle | White | White, circle

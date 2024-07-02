@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85 85" id="location">
-  <defs>
-    <style>.b2bf2160-c719-49f2-b04e-87b4bdebb802{fill:none;}.ed5d9771-10d3-45be-b1d6-149871201e1c{fill-rule:evenodd;}</style>
-  </defs>
-  \1<style>.no-fill {fill:none;}</style>
-<g class="no-fill">
-    <g id="b393b784-27ef-4a83-ba1d-55533c6fb2d8" data-name="Layer 1"><style>.colour-fill {fill:rgb(80,86,87);}</style>
-<g class="colour-fill">
-      <circle class="b2bf2160-c719-49f2-b04e-87b4bdebb802" cx="42.5" cy="42.5" r="42.5"/>
-      <path class="ed5d9771-10d3-45be-b1d6-149871201e1c" d="M36.59,31.23a5.86,5.86,0,0,1,5.9-5.89,5.92,5.92,0,0,1,5.89,5.89,5.86,5.86,0,0,1-5.89,5.9A5.92,5.92,0,0,1,36.59,31.23Zm21.84-3.09C56.88,20.8,51.28,15,42.49,15s-14.3,5.8-16,13.14c-3.09,14.59,7.64,30.24,16,41.74C50.8,58.38,61.62,42.63,58.43,28.14Z"/>
+  <g id="f78a0aa6-b7a6-48a0-8a1a-00bfc76967e5" data-name="Layer 2"><style>.no-fill {fill:none;}</style><g class="no-fill">
+    <g id="b9026a8e-b732-4c37-ac9d-29d1eb315afb" data-name="Layer 1"><style>.colour-fill {fill:rgb(80,86,87);}</style><g class="colour-fill">
+      <circle cx="42.49" cy="31.23" r="5.89"/>
+      <path d="M42.5,0A42.5,42.5,0,1,0,85,42.5,42.5,42.5,0,0,0,42.5,0Zm0,69.88c-8.31-11.5-19-27.15-16-41.74C28.19,20.8,33.69,15,42.49,15s14.39,5.8,15.94,13.14C61.62,42.63,50.8,58.38,42.49,69.88Z"/>
     </g>
-  </g>
+  </g></g></g>
 </svg>
