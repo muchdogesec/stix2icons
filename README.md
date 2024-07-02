@@ -129,6 +129,7 @@ Now modify your icons
 
 [This work is an expansion of the STIX objects created by EclecticIQ](https://github.com/eclecticiq/stix-icons/).
 
-## License
+## Licenses
 
-[Creative Commons Attribution 4.0 International Public License](LICENSE).
+* Code: [Apache 2.0](/LICENSE).
+* Content: [Creative Commons Attribution 4.0 International Public License](/LICENSE-CONTENT)

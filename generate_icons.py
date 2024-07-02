@@ -1,12 +1,13 @@
 import os
 import re
 import cairosvg
+import xml.etree.ElementTree as ET
 
 # Directory paths for normal and round input and output
 input_normal_dir = "input_vectors/normal"
-output_normal_dir = "output/normal/rgb"
+output_normal_dir = "output_files/normal/rgb/svg"
 input_round_dir = "input_vectors/round"
-output_round_dir = "output/round/rgb"
+output_round_dir = "output_files/round/rgb/svg"
 
 objects = [
     {"object": "attack-pattern", "type": "sdo", "colour_rgb": "34,119,181"},
@@ -107,6 +108,23 @@ def process_svg_round(svg_path, output_path, colour_rgb):
     with open(output_path, 'w') as file:
         file.write(svg_content)
 
+def process_svg_round(svg_path, output_path, colour_rgb):
+    with open(svg_path, 'r') as file:
+        svg_content = file.read()
+
+    # Ensure Layer 1 has the specified fill color
+    svg_content = re.sub(r'(<g[^>]*data-name="Layer 1"[^>]*>)', f'\\1<style>.colour-fill {{fill:rgb({colour_rgb});}}</style><g class="colour-fill">', svg_content, flags=re.IGNORECASE)
+    
+    # Ensure Layer 2 has fill:none
+    svg_content = re.sub(r'(<g[^>]*data-name="Layer 2"[^>]*>)', r'\1<style>.no-fill {fill:none;}</style><g class="no-fill">', svg_content, flags=re.IGNORECASE)
+
+    # Ensure proper closing of the added groups
+    svg_content = re.sub(r'(</g>\s*</svg>)', r'</g></g>\1', svg_content, flags=re.IGNORECASE)
+
+    # Write the modified SVG content to the new file in the output directory
+    with open(output_path, 'w') as file:
+        file.write(svg_content)
+
 def process_directory(input_dir, output_dir, is_round=False):
     for root, dirs, files in os.walk(input_dir):
         for file in files:
@@ -129,8 +147,32 @@ def process_directory(input_dir, output_dir, is_round=False):
                         process_svg_normal(svg_path, output_path, colour_rgb)
                     print(f"Processed {svg_path} -> {output_path}")
 
+def minify_svg(svg_content):
+    """ Minify SVG content by removing unnecessary whitespace and line breaks. """
+    tree = ET.ElementTree(ET.fromstring(svg_content))
+    for elem in tree.iter():
+        elem.text = elem.text.strip() if elem.text else None
+        elem.tail = elem.tail.strip() if elem.tail else None
+    return ET.tostring(tree.getroot(), encoding='unicode', method='xml')
+
+def minify_svgs(directory):
+    for root, dirs, files in os.walk(directory):
+        for file in files:
+            if file.endswith('.svg'):
+                svg_path = os.path.join(root, file)
+                with open(svg_path, 'r', encoding='utf-8') as f:
+                    svg_content = f.read()
+                minified_content = minify_svg(svg_content)
+                with open(svg_path, 'w', encoding='utf-8') as f:
+                    f.write(minified_content)
+                print(f"Minified {svg_path}")
+
 # Process the directory for normal output
 process_directory(input_normal_dir, output_normal_dir)
+# Minify the SVGs in normal output directory
+minify_svgs(output_normal_dir)
 
 # Process the directory for round output with input from round directory
 process_directory(input_round_dir, output_round_dir, is_round=True)
+# Minify the SVGs in round output directory
+minify_svgs(output_round_dir)
