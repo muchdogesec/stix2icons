@@ -102,6 +102,19 @@ WIP
 
 #### SMOs
 
+1. Language Content
+2. Marking Definition
+  * TLPv2 Green
+  * TLPv2 Clear
+  * TLPv2 Amber+Strict
+  * TLPv2 Amber
+  * TLPv2 Red
+  * TLPv1 White
+  * TLPv1 Green
+  * TLPv1 Amber
+  * TLPv1 Red
+3. Extension Definition
+
 #### SROs
 
   Object         |     RGB   | RGB, circle | Black | Black, circle | White | White, circle
@@ -125,6 +138,7 @@ pip3 install -r requirements.txt
 ```
 
 Now modify your icons
+
 ## Credits
 
 [This work is an expansion of the STIX objects created by EclecticIQ](https://github.com/eclecticiq/stix-icons/).

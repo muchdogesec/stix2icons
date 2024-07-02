@@ -5,9 +5,9 @@ import xml.etree.ElementTree as ET
 
 # Directory paths for normal and round input and output
 input_normal_dir = "input_vectors/normal"
-output_normal_dir = "output_files/normal/rgb/svg"
+output_normal_dir = "output_files/rgb/normal/svg"
 input_round_dir = "input_vectors/round"
-output_round_dir = "output_files/round/rgb/svg"
+output_round_dir = "output_files/rgb/round/svg"
 
 objects = [
     {"object": "attack-pattern", "type": "sdo", "colour_rgb": "34,119,181"},
