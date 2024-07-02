@@ -3,7 +3,8 @@ import re
 import cairosvg
 
 input_dir = "input_vectors/normal"
-output_dir = "output/normal/rgb"
+output_normal_dir = "output/normal/rgb"
+output_round_dir = "output/round/rgb"
 
 objects = [
     {"object": "attack-pattern", "type": "sdo", "colour_rgb": "34,119,181"},
@@ -66,7 +67,7 @@ def find_colour_rgb(object_name):
             return obj['colour_rgb']
     return None
 
-def process_svg(svg_path, output_path, colour_rgb):
+def process_svg_normal(svg_path, output_path, colour_rgb):
     with open(svg_path, 'r') as file:
         svg_content = file.read()
 
@@ -85,7 +86,27 @@ def process_svg(svg_path, output_path, colour_rgb):
     with open(output_path, 'w') as file:
         file.write(svg_content)
 
-def process_directory(input_dir, output_dir):
+def process_svg_round(svg_path, output_path, colour_rgb):
+    with open(svg_path, 'r') as file:
+        svg_content = file.read()
+
+    # Patterns to match and replace fill for Layer 1 and fill:none for Layer 2
+    layer1_pattern = r'(<g[^>]*data-name="Layer 1"[^>]*>)(.*?)(</g>)'
+    layer2_pattern = r'(<g[^>]*data-name="Layer 2"[^>]*>)(.*?)(</g>)'
+    
+    # Ensure Layer 1 has the specified fill color
+    svg_content = re.sub(layer1_pattern, r'\1\2\3', svg_content, flags=re.DOTALL)
+    svg_content = re.sub(r'(<g[^>]*data-name="Layer 1"[^>]*>)', f'\\1<style>.colour-fill {{fill:rgb({colour_rgb});}}</style>\n<g class="colour-fill">', svg_content)
+    
+    # Ensure Layer 2 has fill:none
+    svg_content = re.sub(layer2_pattern, r'\1\2\3', svg_content, flags=re.DOTALL)
+    svg_content = re.sub(r'(<g[^>]*data-name="Layer 2"[^>]*>)', r'\\1<style>.no-fill {fill:none;}</style>\n<g class="no-fill">', svg_content)
+
+    # Write the modified SVG content to the new file in the output directory
+    with open(output_path, 'w') as file:
+        file.write(svg_content)
+
+def process_directory(input_dir, output_dir, is_round=False):
     for root, dirs, files in os.walk(input_dir):
         for file in files:
             if file.endswith('.svg'):
@@ -101,8 +122,14 @@ def process_directory(input_dir, output_dir):
                 colour_rgb = find_colour_rgb(object_name)
                 
                 if colour_rgb:
-                    process_svg(svg_path, output_path, colour_rgb)
+                    if is_round:
+                        process_svg_round(svg_path, output_path, colour_rgb)
+                    else:
+                        process_svg_normal(svg_path, output_path, colour_rgb)
                     print(f"Processed {svg_path} -> {output_path}")
 
-# Process the directory
-process_directory(input_dir, output_dir)
+# Process the directory for normal output
+process_directory(input_dir, output_normal_dir)
+
+# Process the directory for round output with opposite fill logic
+process_directory(input_dir, output_round_dir, is_round=True)
