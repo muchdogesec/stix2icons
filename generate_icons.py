@@ -2,12 +2,16 @@ import os
 import re
 import cairosvg
 import xml.etree.ElementTree as ET
+from PIL import Image
+import io
 
 # Directory paths for normal and round input and output
 input_normal_dir = "input_vectors/normal"
 output_normal_dir = "output_files/rgb/normal/svg"
+output_normal_png_dir = "output_files/rgb/normal/png"
 input_round_dir = "input_vectors/round"
 output_round_dir = "output_files/rgb/round/svg"
+output_round_png_dir = "output_files/rgb/round/png"
 
 objects = [
     {
@@ -338,41 +342,17 @@ def find_colour_rgb(object_name):
             return obj['colour_rgb']
     return None
 
-# Working normal processing function
 def process_svg_normal(svg_path, output_path, colour_rgb):
     with open(svg_path, 'r') as file:
         svg_content = file.read()
 
-    # Patterns to match and replace fill:none for Layer 1 and fill for Layer 2
     layer1_pattern = r'(<g[^>]*data-name="Layer 1"[^>]*>)(.*?)(</g>)'
     layer2_pattern = r'(<g[^>]*data-name="Layer 2"[^>]*>)(.*?)(</g>)'
     
-    # Ensure Layer 1 has fill:none
     svg_content = re.sub(layer1_pattern, r'\1\2\3', svg_content, flags=re.DOTALL)
     svg_content = re.sub(r'fill="none"', 'fill="none"', svg_content, flags=re.IGNORECASE)
-    
-    # Ensure Layer 2 has the specified fill color
     svg_content = re.sub(layer2_pattern, f'\\1<g style="fill:rgb({colour_rgb});">\\2</g>\\3', svg_content, flags=re.DOTALL)
 
-    # Write the modified SVG content to the new file in the output directory
-    with open(output_path, 'w') as file:
-        file.write(svg_content)
-
-# Corrected round processing function
-def process_svg_round(svg_path, output_path, colour_rgb):
-    with open(svg_path, 'r') as file:
-        svg_content = file.read()
-
-    # Ensure Layer 1 has the specified fill color
-    svg_content = re.sub(r'(<g[^>]*data-name="Layer 1"[^>]*>)', f'\\1<style>.colour-fill {{fill:rgb({colour_rgb});}}</style><g class="colour-fill">', svg_content, flags=re.IGNORECASE)
-    
-    # Ensure Layer 2 has fill:none
-    svg_content = re.sub(r'(<g[^>]*data-name="Layer 2"[^>]*>)', r'\1<style>.no-fill {fill:none;}</style><g class="no-fill">', svg_content, flags=re.IGNORECASE)
-
-    # Ensure proper closing of the added groups
-    svg_content = re.sub(r'(</g>\s*</svg>)', r'</g></g>\1', svg_content, flags=re.IGNORECASE)
-
-    # Write the modified SVG content to the new file in the output directory
     with open(output_path, 'w') as file:
         file.write(svg_content)
 
@@ -380,31 +360,51 @@ def process_svg_round(svg_path, output_path, colour_rgb):
     with open(svg_path, 'r') as file:
         svg_content = file.read()
 
-    # Ensure Layer 1 has the specified fill color
     svg_content = re.sub(r'(<g[^>]*data-name="Layer 1"[^>]*>)', f'\\1<style>.colour-fill {{fill:rgb({colour_rgb});}}</style><g class="colour-fill">', svg_content, flags=re.IGNORECASE)
-    
-    # Ensure Layer 2 has fill:none
     svg_content = re.sub(r'(<g[^>]*data-name="Layer 2"[^>]*>)', r'\1<style>.no-fill {fill:none;}</style><g class="no-fill">', svg_content, flags=re.IGNORECASE)
-
-    # Ensure proper closing of the added groups
     svg_content = re.sub(r'(</g>\s*</svg>)', r'</g></g>\1', svg_content, flags=re.IGNORECASE)
 
-    # Write the modified SVG content to the new file in the output directory
     with open(output_path, 'w') as file:
         file.write(svg_content)
 
-def process_directory(input_dir, output_dir, is_round=False):
+def convert_svg_to_png(svg_path, png_path):
+    try:
+        cairosvg.svg2png(url=svg_path, write_to=png_path, output_width=1024, output_height=1024)
+    except Exception as e:
+        print(f"Error with cairosvg conversion: {e}. Trying alternative method.")
+        try:
+            from lxml import etree
+            from rsvg import handle
+            
+            with open(svg_path, 'rb') as svg_file:
+                svg_content = svg_file.read()
+                
+            svg_handle = handle.RsvgHandle.new_from_data(svg_content)
+            width = svg_handle.props.width
+            height = svg_handle.props.height
+            surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, width, height)
+            context = cairo.Context(surface)
+            svg_handle.render_cairo(context)
+            image_data = surface.get_data()
+
+            image = Image.frombuffer("RGBA", (width, height), image_data, "raw", "BGRA", 0, 1)
+            image = image.resize((1024, 1024), Image.ANTIALIAS)
+            image.save(png_path)
+        except Exception as alt_e:
+            print(f"Alternative conversion method also failed: {alt_e}")
+
+def process_directory(input_dir, output_dir, png_dir, is_round=False):
     for root, dirs, files in os.walk(input_dir):
         for file in files:
             if file.endswith('.svg'):
                 svg_path = os.path.join(root, file)
                 relative_path = os.path.relpath(svg_path, input_dir)
                 output_path = os.path.join(output_dir, relative_path)
+                png_output_path = os.path.join(png_dir, os.path.splitext(relative_path)[0] + '.png')
                 
-                # Ensure the output directory exists
                 os.makedirs(os.path.dirname(output_path), exist_ok=True)
+                os.makedirs(os.path.dirname(png_output_path), exist_ok=True)
                 
-                # Extract object name from the file name
                 object_name = os.path.splitext(file)[0]
                 colour_rgb = find_colour_rgb(object_name)
                 
@@ -413,10 +413,11 @@ def process_directory(input_dir, output_dir, is_round=False):
                         process_svg_round(svg_path, output_path, colour_rgb)
                     else:
                         process_svg_normal(svg_path, output_path, colour_rgb)
-                    print(f"Processed {svg_path} -> {output_path}")
+                    
+                    convert_svg_to_png(output_path, png_output_path)
+                    print(f"Processed {svg_path} -> {output_path} and {png_output_path}")
 
 def minify_svg(svg_content):
-    """ Minify SVG content by removing unnecessary whitespace and line breaks. """
     tree = ET.ElementTree(ET.fromstring(svg_content))
     for elem in tree.iter():
         elem.text = elem.text.strip() if elem.text else None
@@ -436,11 +437,11 @@ def minify_svgs(directory):
                 print(f"Minified {svg_path}")
 
 # Process the directory for normal output
-process_directory(input_normal_dir, output_normal_dir)
+process_directory(input_normal_dir, output_normal_dir, output_normal_png_dir)
 # Minify the SVGs in normal output directory
 minify_svgs(output_normal_dir)
 
 # Process the directory for round output with input from round directory
-process_directory(input_round_dir, output_round_dir, is_round=True)
+process_directory(input_round_dir, output_round_dir, output_round_png_dir, is_round=True)
 # Minify the SVGs in round output directory
 minify_svgs(output_round_dir)
