@@ -1,8 +1,10 @@
 import os
+import re
 import cairosvg
-from bs4 import BeautifulSoup
 
-# object_list from the provided object_list.py
+input_dir = "input_vectors/normal"
+output_dir = "output/normal/rgb"
+
 objects = [
     {"object": "attack-pattern", "type": "sdo", "colour_rgb": "34,119,181"},
     {"object": "campaign", "type": "sdo", "colour_rgb": "80,182,30"},
@@ -58,40 +60,49 @@ objects = [
     {"object": "sighting", "type": "sro", "colour_rgb": "235,94,42"}
 ]
 
-# Function to get color for a given object name
-def get_color(object_name):
+def find_colour_rgb(object_name):
     for obj in objects:
-        if obj["object"] == object_name:
-            return obj["colour_rgb"]
-    return "0,0,0"  # Default color if not found
+        if obj['object'] == object_name:
+            return obj['colour_rgb']
+    return None
 
-# Function to process SVG and change color
-def process_svg(input_path, output_path, color_rgb):
-    with open(input_path, 'r') as file:
+def process_svg(svg_path, output_path, colour_rgb):
+    with open(svg_path, 'r') as file:
         svg_content = file.read()
 
-    soup = BeautifulSoup(svg_content, 'xml')
-    styles = soup.find_all("style")
+    # Patterns to match and replace fill:none for Layer 1 and fill for Layer 2
+    layer1_pattern = r'(<g[^>]*data-name="Layer 1"[^>]*>)(.*?)(</g>)'
+    layer2_pattern = r'(<g[^>]*data-name="Layer 2"[^>]*>)(.*?)(</g>)'
+    
+    # Ensure Layer 1 has fill:none
+    svg_content = re.sub(layer1_pattern, r'\1\2\3', svg_content, flags=re.DOTALL)
+    svg_content = re.sub(r'fill="none"', 'fill="none"', svg_content, flags=re.IGNORECASE)
+    
+    # Ensure Layer 2 has the specified fill color
+    svg_content = re.sub(layer2_pattern, f'\\1<g style="fill:rgb({colour_rgb});">\\2</g>\\3', svg_content, flags=re.DOTALL)
 
-    for style in styles:
-        style.string = style.string.replace('fill:none;', f'fill:rgb({color_rgb});')
-
+    # Write the modified SVG content to the new file in the output directory
     with open(output_path, 'w') as file:
-        file.write(str(soup))
+        file.write(svg_content)
 
-    cairosvg.svg2png(url=output_path, write_to=output_path.replace('.svg', '.png'), output_width=1200, output_height=1200)
-
-# Directories to process
-directories = ['normal', 'round']
-
-for directory in directories:
-    for root, _, files in os.walk(f'vectors/{directory}'):
+def process_directory(input_dir, output_dir):
+    for root, dirs, files in os.walk(input_dir):
         for file in files:
             if file.endswith('.svg'):
-                object_name = file.replace('.svg', '')
-                color_rgb = get_color(object_name)
-                input_path = os.path.join(root, file)
-                output_path = os.path.join(root, file)
-                process_svg(input_path, output_path, color_rgb)
+                svg_path = os.path.join(root, file)
+                relative_path = os.path.relpath(svg_path, input_dir)
+                output_path = os.path.join(output_dir, relative_path)
+                
+                # Ensure the output directory exists
+                os.makedirs(os.path.dirname(output_path), exist_ok=True)
+                
+                # Extract object name from the file name
+                object_name = os.path.splitext(file)[0]
+                colour_rgb = find_colour_rgb(object_name)
+                
+                if colour_rgb:
+                    process_svg(svg_path, output_path, colour_rgb)
+                    print(f"Processed {svg_path} -> {output_path}")
 
-print("SVG to PNG conversion complete.")
+# Process the directory
+process_directory(input_dir, output_dir)
