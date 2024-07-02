@@ -13,6 +13,18 @@ input_round_dir = "input_vectors/round"
 output_round_dir = "output_files/rgb/round/svg"
 output_round_png_dir = "output_files/rgb/round/png"
 
+# Directories for black and white outputs
+output_black_dir = "output_files/black"
+output_white_dir = "output_files/white"
+output_black_normal_dir = os.path.join(output_black_dir, "normal/svg")
+output_black_normal_png_dir = os.path.join(output_black_dir, "normal/png")
+output_black_round_dir = os.path.join(output_black_dir, "round/svg")
+output_black_round_png_dir = os.path.join(output_black_dir, "round/png")
+output_white_normal_dir = os.path.join(output_white_dir, "normal/svg")
+output_white_normal_png_dir = os.path.join(output_white_dir, "normal/png")
+output_white_round_dir = os.path.join(output_white_dir, "round/svg")
+output_white_round_png_dir = os.path.join(output_white_dir, "round/png")
+
 objects = [
     {
         "object": "attack-pattern",
@@ -336,50 +348,50 @@ objects = [
     }
 ]
 
-def find_colour_rgb(object_name):
+def find_colour_rgb(object_name, color='rgb'):
     for obj in objects:
         if obj['object'] == object_name:
-            return obj['colour_rgb']
+            if color == 'black':
+                return "0,0,0"
+            elif color == 'white':
+                return "255,255,255"
+            else:
+                return obj['colour_rgb']
     return None
 
-def process_svg_normal(svg_path, output_path, colour_rgb):
+def process_svg(svg_path, output_path, colour_rgb, is_round=False):
     with open(svg_path, 'r') as file:
         svg_content = file.read()
 
-    layer1_pattern = r'(<g[^>]*data-name="Layer 1"[^>]*>)(.*?)(</g>)'
-    layer2_pattern = r'(<g[^>]*data-name="Layer 2"[^>]*>)(.*?)(</g>)'
-    
-    svg_content = re.sub(layer1_pattern, r'\1\2\3', svg_content, flags=re.DOTALL)
-    svg_content = re.sub(r'fill="none"', 'fill="none"', svg_content, flags=re.IGNORECASE)
-    svg_content = re.sub(layer2_pattern, f'\\1<g style="fill:rgb({colour_rgb});">\\2</g>\\3', svg_content, flags=re.DOTALL)
-
-    with open(output_path, 'w') as file:
-        file.write(svg_content)
-
-def process_svg_round(svg_path, output_path, colour_rgb):
-    with open(svg_path, 'r') as file:
-        svg_content = file.read()
-
-    svg_content = re.sub(r'(<g[^>]*data-name="Layer 1"[^>]*>)', f'\\1<style>.colour-fill {{fill:rgb({colour_rgb});}}</style><g class="colour-fill">', svg_content, flags=re.IGNORECASE)
-    svg_content = re.sub(r'(<g[^>]*data-name="Layer 2"[^>]*>)', r'\1<style>.no-fill {fill:none;}</style><g class="no-fill">', svg_content, flags=re.IGNORECASE)
-    svg_content = re.sub(r'(</g>\s*</svg>)', r'</g></g>\1', svg_content, flags=re.IGNORECASE)
+    if is_round:
+        svg_content = re.sub(r'(<g[^>]*data-name="Layer 1"[^>]*>)', f'\\1<style>.colour-fill {{fill:rgb({colour_rgb});}}</style><g class="colour-fill">', svg_content, flags=re.IGNORECASE)
+        svg_content = re.sub(r'(<g[^>]*data-name="Layer 2"[^>]*>)', r'\1<style>.no-fill {fill:none;}</style><g class="no-fill">', svg_content, flags=re.IGNORECASE)
+        svg_content = re.sub(r'(</g>\s*</svg>)', r'</g></g>\1', svg_content, flags=re.IGNORECASE)
+    else:
+        layer1_pattern = r'(<g[^>]*data-name="Layer 1"[^>]*>)(.*?)(</g>)'
+        layer2_pattern = r'(<g[^>]*data-name="Layer 2"[^>]*>)(.*?)(</g>)'
+        
+        svg_content = re.sub(layer1_pattern, r'\1\2\3', svg_content, flags=re.DOTALL)
+        svg_content = re.sub(r'fill="none"', 'fill="none"', svg_content, flags=re.IGNORECASE)
+        svg_content = re.sub(layer2_pattern, f'\\1<g style="fill:rgb({colour_rgb});">\\2</g>\\3', svg_content, flags=re.DOTALL)
 
     with open(output_path, 'w') as file:
         file.write(svg_content)
 
 def convert_svg_to_png(svg_path, png_path):
     try:
-        cairosvg.svg2png(url=svg_path, write_to=png_path, output_width=1024, output_height=1024)
+        cairosvg.svg2png(url=svg_path, write_to=png_path, output_width=256, output_height=256)
     except Exception as e:
         print(f"Error with cairosvg conversion: {e}. Trying alternative method.")
         try:
             from lxml import etree
-            from rsvg import handle
+            import rsvg
+            import cairo
             
             with open(svg_path, 'rb') as svg_file:
                 svg_content = svg_file.read()
                 
-            svg_handle = handle.RsvgHandle.new_from_data(svg_content)
+            svg_handle = rsvg.Handle(data=svg_content)
             width = svg_handle.props.width
             height = svg_handle.props.height
             surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, width, height)
@@ -388,12 +400,12 @@ def convert_svg_to_png(svg_path, png_path):
             image_data = surface.get_data()
 
             image = Image.frombuffer("RGBA", (width, height), image_data, "raw", "BGRA", 0, 1)
-            image = image.resize((1024, 1024), Image.ANTIALIAS)
+            image = image.resize((256, 256), Image.ANTIALIAS)
             image.save(png_path)
         except Exception as alt_e:
             print(f"Alternative conversion method also failed: {alt_e}")
 
-def process_directory(input_dir, output_dir, png_dir, is_round=False):
+def process_directory(input_dir, output_dir, png_dir, failed_files, color='rgb', is_round=False):
     for root, dirs, files in os.walk(input_dir):
         for file in files:
             if file.endswith('.svg'):
@@ -406,13 +418,13 @@ def process_directory(input_dir, output_dir, png_dir, is_round=False):
                 os.makedirs(os.path.dirname(png_output_path), exist_ok=True)
                 
                 object_name = os.path.splitext(file)[0]
-                colour_rgb = find_colour_rgb(object_name)
+                colour_rgb = find_colour_rgb(object_name, color)
                 
                 if colour_rgb:
                     if is_round:
-                        process_svg_round(svg_path, output_path, colour_rgb)
+                        process_svg(svg_path, output_path, colour_rgb, is_round)
                     else:
-                        process_svg_normal(svg_path, output_path, colour_rgb)
+                        process_svg(svg_path, output_path, colour_rgb)
                     
                     convert_svg_to_png(output_path, png_output_path)
                     print(f"Processed {svg_path} -> {output_path} and {png_output_path}")
@@ -436,12 +448,53 @@ def minify_svgs(directory):
                     f.write(minified_content)
                 print(f"Minified {svg_path}")
 
+# Track failed files
+failed_files = []
+
 # Process the directory for normal output
-process_directory(input_normal_dir, output_normal_dir, output_normal_png_dir)
+process_directory(input_normal_dir, output_normal_dir, output_normal_png_dir, failed_files)
 # Minify the SVGs in normal output directory
 minify_svgs(output_normal_dir)
 
 # Process the directory for round output with input from round directory
-process_directory(input_round_dir, output_round_dir, output_round_png_dir, is_round=True)
+process_directory(input_round_dir, output_round_dir, output_round_png_dir, failed_files, is_round=True)
 # Minify the SVGs in round output directory
 minify_svgs(output_round_dir)
+
+# Process the directory for black output
+process_directory(input_normal_dir, output_black_normal_dir, output_black_normal_png_dir, failed_files, color='black')
+minify_svgs(output_black_normal_dir)
+process_directory(input_round_dir, output_black_round_dir, output_black_round_png_dir, failed_files, color='black', is_round=True)
+minify_svgs(output_black_round_dir)
+
+# Process the directory for white output
+process_directory(input_normal_dir, output_white_normal_dir, output_white_normal_png_dir, failed_files, color='white')
+minify_svgs(output_white_normal_dir)
+process_directory(input_round_dir, output_white_round_dir, output_white_round_png_dir, failed_files, color='white', is_round=True)
+minify_svgs(output_white_round_dir)
+
+# Generate Markdown table
+markdown_table = "| Object | Type | RGB | RGBCircle | Black | BlackCircle | White | WhiteCircle |\n"
+markdown_table += "|--------|------|-----|-----------|-------|-------------|-------|-------------|\n"
+
+for obj in objects:
+    object_name = obj['object']
+    object_type = obj['type']
+    rgb_png = os.path.join(output_normal_png_dir, f"{object_type}/{object_name}.png")
+    rgb_circle_png = os.path.join(output_round_png_dir, f"{object_type}/{object_name}.png")
+    black_png = os.path.join(output_black_normal_png_dir, f"{object_type}/{object_name}.png")
+    black_circle_png = os.path.join(output_black_round_png_dir, f"{object_type}/{object_name}.png")
+    white_png = os.path.join(output_white_normal_png_dir, f"{object_type}/{object_name}.png")
+    white_circle_png = os.path.join(output_white_round_png_dir, f"{object_type}/{object_name}.png")
+
+    markdown_table += f"| {object_name} | {object_type} | ![]({rgb_png}) | ![]({rgb_circle_png}) | ![]({black_png}) | ![]({black_circle_png}) | ![]({white_png}) | ![]({white_circle_png}) |\n"
+
+print(markdown_table)
+
+# Print list of files that were not created
+if failed_files:
+    print("\nThe following files were not created:")
+    for file in failed_files:
+        print(file)
+else:
+    print("\nAll files were created successfully.")
