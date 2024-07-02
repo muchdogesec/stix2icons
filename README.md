@@ -2,54 +2,121 @@
 
 ## Overview
 
-stix-icons is a collection of colourful and clean icons for use in software, training and marketing material to visualize cyber threats according to the [STIX](https://oasis-open.github.io/cti-documentation/stix/intro) language for intelligence exchange, defined by [OASIS Cyber Threat Intelligence (CTI) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cti)
+stix-icons is a collection of icons that represent all the of core STIX objects. The aim is to provide a central source of icons that can be used to represent STIX objects by software tools (or anything else).
 
-## Content
+This repo is designed so that new icons can be added for custom STIX objects you're developing. See: "Adding your own objects"
+
+## Where to find icons in this repository
+
+The icons are provided in three colour versions: color, black, and white.
+
+There are two variations of each colour provided: with (normal) and without a 'circle' (round) behind the icons.
+
+Each icon has an `.svg` version and a `.png` (256x256) version. Generally you should use the `.svg` version and scale as required.
+
+```txt
+output/
+├── black/
+│   ├── normal/
+│   │   ├── png
+│   │   └── svg
+│   ├── round/
+│   │   ├── png
+│   │   └── svg
+├── rgb/
+│   ├── normal/
+│   │   ├── png
+│   │   └── svg
+│   ├── round/
+│   │   ├── png
+│   │   └── svg
+└── white/
+    ├── normal/
+    │   ├── png
+    │   └── svg
+    └── round/
+        ├── png
+        └── svg
+```
+
+## Currently supported objects
+
+| Object | Type | RGB | RGBCircle | Black | BlackCircle | White | WhiteCircle |
+|--------|------|-----|-----------|-------|-------------|-------|-------------|
+| attack-pattern | sdo | ![](output_files/rgb/normal/png/attack-pattern.png) | ![](output_files/rgb/round/png/attack-pattern.png) | ![](output_files/black/normal/png/attack-pattern.png) | ![](output_files/black/round/png/attack-pattern.png) | ![](output_files/white/normal/png/attack-pattern.png) | ![](output_files/white/round/png/attack-pattern.png) |
+| campaign | sdo | ![](output_files/rgb/normal/png/campaign.png) | ![](output_files/rgb/round/png/campaign.png) | ![](output_files/black/normal/png/campaign.png) | ![](output_files/black/round/png/campaign.png) | ![](output_files/white/normal/png/campaign.png) | ![](output_files/white/round/png/campaign.png) |
+| course-of-action | sdo | ![](output_files/rgb/normal/png/course-of-action.png) | ![](output_files/rgb/round/png/course-of-action.png) | ![](output_files/black/normal/png/course-of-action.png) | ![](output_files/black/round/png/course-of-action.png) | ![](output_files/white/normal/png/course-of-action.png) | ![](output_files/white/round/png/course-of-action.png) |
+| grouping | sdo | ![](output_files/rgb/normal/png/grouping.png) | ![](output_files/rgb/round/png/grouping.png) | ![](output_files/black/normal/png/grouping.png) | ![](output_files/black/round/png/grouping.png) | ![](output_files/white/normal/png/grouping.png) | ![](output_files/white/round/png/grouping.png) |
+| identity | sdo | ![](output_files/rgb/normal/png/identity.png) | ![](output_files/rgb/round/png/identity.png) | ![](output_files/black/normal/png/identity.png) | ![](output_files/black/round/png/identity.png) | ![](output_files/white/normal/png/identity.png) | ![](output_files/white/round/png/identity.png) |
+| identity_group | sdo | ![](output_files/rgb/normal/png/identity_group.png) | ![](output_files/rgb/round/png/identity_group.png) | ![](output_files/black/normal/png/identity_group.png) | ![](output_files/black/round/png/identity_group.png) | ![](output_files/white/normal/png/identity_group.png) | ![](output_files/white/round/png/identity_group.png) |
+| identity_system | sdo | ![](output_files/rgb/normal/png/identity_system.png) | ![](output_files/rgb/round/png/identity_system.png) | ![](output_files/black/normal/png/identity_system.png) | ![](output_files/black/round/png/identity_system.png) | ![](output_files/white/normal/png/identity_system.png) | ![](output_files/white/round/png/identity_system.png) |
+| identity_organization | sdo | ![](output_files/rgb/normal/png/identity_organization.png) | ![](output_files/rgb/round/png/identity_organization.png) | ![](output_files/black/normal/png/identity_organization.png) | ![](output_files/black/round/png/identity_organization.png) | ![](output_files/white/normal/png/identity_organization.png) | ![](output_files/white/round/png/identity_organization.png) |
+| identity_individual | sdo | ![](output_files/rgb/normal/png/identity_individual.png) | ![](output_files/rgb/round/png/identity_individual.png) | ![](output_files/black/normal/png/identity_individual.png) | ![](output_files/black/round/png/identity_individual.png) | ![](output_files/white/normal/png/identity_individual.png) | ![](output_files/white/round/png/identity_individual.png) |
+| identity_class | sdo | ![](output_files/rgb/normal/png/identity_class.png) | ![](output_files/rgb/round/png/identity_class.png) | ![](output_files/black/normal/png/identity_class.png) | ![](output_files/black/round/png/identity_class.png) | ![](output_files/white/normal/png/identity_class.png) | ![](output_files/white/round/png/identity_class.png) |
+| incident | sdo | ![](output_files/rgb/normal/png/incident.png) | ![](output_files/rgb/round/png/incident.png) | ![](output_files/black/normal/png/incident.png) | ![](output_files/black/round/png/incident.png) | ![](output_files/white/normal/png/incident.png) | ![](output_files/white/round/png/incident.png) |
+| indicator | sdo | ![](output_files/rgb/normal/png/indicator.png) | ![](output_files/rgb/round/png/indicator.png) | ![](output_files/black/normal/png/indicator.png) | ![](output_files/black/round/png/indicator.png) | ![](output_files/white/normal/png/indicator.png) | ![](output_files/white/round/png/indicator.png) |
+| infrastructure | sdo | ![](output_files/rgb/normal/png/infrastructure.png) | ![](output_files/rgb/round/png/infrastructure.png) | ![](output_files/black/normal/png/infrastructure.png) | ![](output_files/black/round/png/infrastructure.png) | ![](output_files/white/normal/png/infrastructure.png) | ![](output_files/white/round/png/infrastructure.png) |
+| intrusion-set | sdo | ![](output_files/rgb/normal/png/intrusion-set.png) | ![](output_files/rgb/round/png/intrusion-set.png) | ![](output_files/black/normal/png/intrusion-set.png) | ![](output_files/black/round/png/intrusion-set.png) | ![](output_files/white/normal/png/intrusion-set.png) | ![](output_files/white/round/png/intrusion-set.png) |
+| location | sdo | ![](output_files/rgb/normal/png/location.png) | ![](output_files/rgb/round/png/location.png) | ![](output_files/black/normal/png/location.png) | ![](output_files/black/round/png/location.png) | ![](output_files/white/normal/png/location.png) | ![](output_files/white/round/png/location.png) |
+| malware | sdo | ![](output_files/rgb/normal/png/malware.png) | ![](output_files/rgb/round/png/malware.png) | ![](output_files/black/normal/png/malware.png) | ![](output_files/black/round/png/malware.png) | ![](output_files/white/normal/png/malware.png) | ![](output_files/white/round/png/malware.png) |
+| malware_family | sdo | ![](output_files/rgb/normal/png/malware_family.png) | ![](output_files/rgb/round/png/malware_family.png) | ![](output_files/black/normal/png/malware_family.png) | ![](output_files/black/round/png/malware_family.png) | ![](output_files/white/normal/png/malware_family.png) | ![](output_files/white/round/png/malware_family.png) |
+| malware-analysis | sdo | ![](output_files/rgb/normal/png/malware-analysis.png) | ![](output_files/rgb/round/png/malware-analysis.png) | ![](output_files/black/normal/png/malware-analysis.png) | ![](output_files/black/round/png/malware-analysis.png) | ![](output_files/white/normal/png/malware-analysis.png) | ![](output_files/white/round/png/malware-analysis.png) |
+| note | sdo | ![](output_files/rgb/normal/png/note.png) | ![](output_files/rgb/round/png/note.png) | ![](output_files/black/normal/png/note.png) | ![](output_files/black/round/png/note.png) | ![](output_files/white/normal/png/note.png) | ![](output_files/white/round/png/note.png) |
+| observed-data | sdo | ![](output_files/rgb/normal/png/observed-data.png) | ![](output_files/rgb/round/png/observed-data.png) | ![](output_files/black/normal/png/observed-data.png) | ![](output_files/black/round/png/observed-data.png) | ![](output_files/white/normal/png/observed-data.png) | ![](output_files/white/round/png/observed-data.png) |
+| opinion | sdo | ![](output_files/rgb/normal/png/opinion.png) | ![](output_files/rgb/round/png/opinion.png) | ![](output_files/black/normal/png/opinion.png) | ![](output_files/black/round/png/opinion.png) | ![](output_files/white/normal/png/opinion.png) | ![](output_files/white/round/png/opinion.png) |
+| report | sdo | ![](output_files/rgb/normal/png/report.png) | ![](output_files/rgb/round/png/report.png) | ![](output_files/black/normal/png/report.png) | ![](output_files/black/round/png/report.png) | ![](output_files/white/normal/png/report.png) | ![](output_files/white/round/png/report.png) |
+| threat-actor | sdo | ![](output_files/rgb/normal/png/threat-actor.png) | ![](output_files/rgb/round/png/threat-actor.png) | ![](output_files/black/normal/png/threat-actor.png) | ![](output_files/black/round/png/threat-actor.png) | ![](output_files/white/normal/png/threat-actor.png) | ![](output_files/white/round/png/threat-actor.png) |
+| tool | sdo | ![](output_files/rgb/normal/png/tool.png) | ![](output_files/rgb/round/png/tool.png) | ![](output_files/black/normal/png/tool.png) | ![](output_files/black/round/png/tool.png) | ![](output_files/white/normal/png/tool.png) | ![](output_files/white/round/png/tool.png) |
+| vulnerability | sdo | ![](output_files/rgb/normal/png/vulnerability.png) | ![](output_files/rgb/round/png/vulnerability.png) | ![](output_files/black/normal/png/vulnerability.png) | ![](output_files/black/round/png/vulnerability.png) | ![](output_files/white/normal/png/vulnerability.png) | ![](output_files/white/round/png/vulnerability.png) |
+| weakness | sdo | ![](output_files/rgb/normal/png/weakness.png) | ![](output_files/rgb/round/png/weakness.png) | ![](output_files/black/normal/png/weakness.png) | ![](output_files/black/round/png/weakness.png) | ![](output_files/white/normal/png/weakness.png) | ![](output_files/white/round/png/weakness.png) |
+| artifact | sco | ![](output_files/rgb/normal/png/artifact.png) | ![](output_files/rgb/round/png/artifact.png) | ![](output_files/black/normal/png/artifact.png) | ![](output_files/black/round/png/artifact.png) | ![](output_files/white/normal/png/artifact.png) | ![](output_files/white/round/png/artifact.png) |
+| autonomous-system | sco | ![](output_files/rgb/normal/png/autonomous-system.png) | ![](output_files/rgb/round/png/autonomous-system.png) | ![](output_files/black/normal/png/autonomous-system.png) | ![](output_files/black/round/png/autonomous-system.png) | ![](output_files/white/normal/png/autonomous-system.png) | ![](output_files/white/round/png/autonomous-system.png) |
+| directory | sco | ![](output_files/rgb/normal/png/directory.png) | ![](output_files/rgb/round/png/directory.png) | ![](output_files/black/normal/png/directory.png) | ![](output_files/black/round/png/directory.png) | ![](output_files/white/normal/png/directory.png) | ![](output_files/white/round/png/directory.png) |
+| domain-name | sco | ![](output_files/rgb/normal/png/domain-name.png) | ![](output_files/rgb/round/png/domain-name.png) | ![](output_files/black/normal/png/domain-name.png) | ![](output_files/black/round/png/domain-name.png) | ![](output_files/white/normal/png/domain-name.png) | ![](output_files/white/round/png/domain-name.png) |
+| email-addr | sco | ![](output_files/rgb/normal/png/email-addr.png) | ![](output_files/rgb/round/png/email-addr.png) | ![](output_files/black/normal/png/email-addr.png) | ![](output_files/black/round/png/email-addr.png) | ![](output_files/white/normal/png/email-addr.png) | ![](output_files/white/round/png/email-addr.png) |
+| email-message | sco | ![](output_files/rgb/normal/png/email-message.png) | ![](output_files/rgb/round/png/email-message.png) | ![](output_files/black/normal/png/email-message.png) | ![](output_files/black/round/png/email-message.png) | ![](output_files/white/normal/png/email-message.png) | ![](output_files/white/round/png/email-message.png) |
+| file | sco | ![](output_files/rgb/normal/png/file.png) | ![](output_files/rgb/round/png/file.png) | ![](output_files/black/normal/png/file.png) | ![](output_files/black/round/png/file.png) | ![](output_files/white/normal/png/file.png) | ![](output_files/white/round/png/file.png) |
+| ipv4-addr | sco | ![](output_files/rgb/normal/png/ipv4-addr.png) | ![](output_files/rgb/round/png/ipv4-addr.png) | ![](output_files/black/normal/png/ipv4-addr.png) | ![](output_files/black/round/png/ipv4-addr.png) | ![](output_files/white/normal/png/ipv4-addr.png) | ![](output_files/white/round/png/ipv4-addr.png) |
+| ipv6-addr | sco | ![](output_files/rgb/normal/png/ipv6-addr.png) | ![](output_files/rgb/round/png/ipv6-addr.png) | ![](output_files/black/normal/png/ipv6-addr.png) | ![](output_files/black/round/png/ipv6-addr.png) | ![](output_files/white/normal/png/ipv6-addr.png) | ![](output_files/white/round/png/ipv6-addr.png) |
+| mac-addr | sco | ![](output_files/rgb/normal/png/mac-addr.png) | ![](output_files/rgb/round/png/mac-addr.png) | ![](output_files/black/normal/png/mac-addr.png) | ![](output_files/black/round/png/mac-addr.png) | ![](output_files/white/normal/png/mac-addr.png) | ![](output_files/white/round/png/mac-addr.png) |
+| mutex | sco | ![](output_files/rgb/normal/png/mutex.png) | ![](output_files/rgb/round/png/mutex.png) | ![](output_files/black/normal/png/mutex.png) | ![](output_files/black/round/png/mutex.png) | ![](output_files/white/normal/png/mutex.png) | ![](output_files/white/round/png/mutex.png) |
+| network-traffic | sco | ![](output_files/rgb/normal/png/network-traffic.png) | ![](output_files/rgb/round/png/network-traffic.png) | ![](output_files/black/normal/png/network-traffic.png) | ![](output_files/black/round/png/network-traffic.png) | ![](output_files/white/normal/png/network-traffic.png) | ![](output_files/white/round/png/network-traffic.png) |
+| process | sco | ![](output_files/rgb/normal/png/process.png) | ![](output_files/rgb/round/png/process.png) | ![](output_files/black/normal/png/process.png) | ![](output_files/black/round/png/process.png) | ![](output_files/white/normal/png/process.png) | ![](output_files/white/round/png/process.png) |
+| software | sco | ![](output_files/rgb/normal/png/software.png) | ![](output_files/rgb/round/png/software.png) | ![](output_files/black/normal/png/software.png) | ![](output_files/black/round/png/software.png) | ![](output_files/white/normal/png/software.png) | ![](output_files/white/round/png/software.png) |
+| url | sco | ![](output_files/rgb/normal/png/url.png) | ![](output_files/rgb/round/png/url.png) | ![](output_files/black/normal/png/url.png) | ![](output_files/black/round/png/url.png) | ![](output_files/white/normal/png/url.png) | ![](output_files/white/round/png/url.png) |
+| user-account | sco | ![](output_files/rgb/normal/png/user-account.png) | ![](output_files/rgb/round/png/user-account.png) | ![](output_files/black/normal/png/user-account.png) | ![](output_files/black/round/png/user-account.png) | ![](output_files/white/normal/png/user-account.png) | ![](output_files/white/round/png/user-account.png) |
+| windows-registry-key | sco | ![](output_files/rgb/normal/png/windows-registry-key.png) | ![](output_files/rgb/round/png/windows-registry-key.png) | ![](output_files/black/normal/png/windows-registry-key.png) | ![](output_files/black/round/png/windows-registry-key.png) | ![](output_files/white/normal/png/windows-registry-key.png) | ![](output_files/white/round/png/windows-registry-key.png) |
+| x509-certificate | sco | ![](output_files/rgb/normal/png/x509-certificate.png) | ![](output_files/rgb/round/png/x509-certificate.png) | ![](output_files/black/normal/png/x509-certificate.png) | ![](output_files/black/round/png/x509-certificate.png) | ![](output_files/white/normal/png/x509-certificate.png) | ![](output_files/white/round/png/x509-certificate.png) |
+| bank-account | sco | ![](output_files/rgb/normal/png/bank-account.png) | ![](output_files/rgb/round/png/bank-account.png) | ![](output_files/black/normal/png/bank-account.png) | ![](output_files/black/round/png/bank-account.png) | ![](output_files/white/normal/png/bank-account.png) | ![](output_files/white/round/png/bank-account.png) |
+| bank-card | sco | ![](output_files/rgb/normal/png/bank-card.png) | ![](output_files/rgb/round/png/bank-card.png) | ![](output_files/black/normal/png/bank-card.png) | ![](output_files/black/round/png/bank-card.png) | ![](output_files/white/normal/png/bank-card.png) | ![](output_files/white/round/png/bank-card.png) |
+| cryptocurrency-transaction | sco | ![](output_files/rgb/normal/png/cryptocurrency-transaction.png) | ![](output_files/rgb/round/png/cryptocurrency-transaction.png) | ![](output_files/black/normal/png/cryptocurrency-transaction.png) | ![](output_files/black/round/png/cryptocurrency-transaction.png) | ![](output_files/white/normal/png/cryptocurrency-transaction.png) | ![](output_files/white/round/png/cryptocurrency-transaction.png) |
+| cryptocurrency-wallet | sco | ![](output_files/rgb/normal/png/cryptocurrency-wallet.png) | ![](output_files/rgb/round/png/cryptocurrency-wallet.png) | ![](output_files/black/normal/png/cryptocurrency-wallet.png) | ![](output_files/black/round/png/cryptocurrency-wallet.png) | ![](output_files/white/normal/png/cryptocurrency-wallet.png) | ![](output_files/white/round/png/cryptocurrency-wallet.png) |
+| phone-number | sco | ![](output_files/rgb/normal/png/phone-number.png) | ![](output_files/rgb/round/png/phone-number.png) | ![](output_files/black/normal/png/phone-number.png) | ![](output_files/black/round/png/phone-number.png) | ![](output_files/white/normal/png/phone-number.png) | ![](output_files/white/round/png/phone-number.png) |
+| user-agent | sco | ![](output_files/rgb/normal/png/user-agent.png) | ![](output_files/rgb/round/png/user-agent.png) | ![](output_files/black/normal/png/user-agent.png) | ![](output_files/black/round/png/user-agent.png) | ![](output_files/white/normal/png/user-agent.png) | ![](output_files/white/round/png/user-agent.png) |
+| relationship | sro | ![](output_files/rgb/normal/png/relationship.png) | ![](output_files/rgb/round/png/relationship.png) | ![](output_files/black/normal/png/relationship.png) | ![](output_files/black/round/png/relationship.png) | ![](output_files/white/normal/png/relationship.png) | ![](output_files/white/round/png/relationship.png) |
+| sighting | sro | ![](output_files/rgb/normal/png/sighting.png) | ![](output_files/rgb/round/png/sighting.png) | ![](output_files/black/normal/png/sighting.png) | ![](output_files/black/round/png/sighting.png) | ![](output_files/white/normal/png/sighting.png) | ![](output_files/white/round/png/sighting.png) |
+| language-content | smo | ![](output_files/rgb/normal/png/language-content.png) | ![](output_files/rgb/round/png/language-content.png) | ![](output_files/black/normal/png/language-content.png) | ![](output_files/black/round/png/language-content.png) | ![](output_files/white/normal/png/language-content.png) | ![](output_files/white/round/png/language-content.png) |
+| marking-definition | smo | ![](output_files/rgb/normal/png/marking-definition.png) | ![](output_files/rgb/round/png/marking-definition.png) | ![](output_files/black/normal/png/marking-definition.png) | ![](output_files/black/round/png/marking-definition.png) | ![](output_files/white/normal/png/marking-definition.png) | ![](output_files/white/round/png/marking-definition.png) |
+| marking-definition_tlpv1_white | smo | ![](output_files/rgb/normal/png/marking-definition_tlpv1_white.png) | ![](output_files/rgb/round/png/marking-definition_tlpv1_white.png) | ![](output_files/black/normal/png/marking-definition_tlpv1_white.png) | ![](output_files/black/round/png/marking-definition_tlpv1_white.png) | ![](output_files/white/normal/png/marking-definition_tlpv1_white.png) | ![](output_files/white/round/png/marking-definition_tlpv1_white.png) |
+| marking-definition_tlpv1_green | smo | ![](output_files/rgb/normal/png/marking-definition_tlpv1_green.png) | ![](output_files/rgb/round/png/marking-definition_tlpv1_green.png) | ![](output_files/black/normal/png/marking-definition_tlpv1_green.png) | ![](output_files/black/round/png/marking-definition_tlpv1_green.png) | ![](output_files/white/normal/png/marking-definition_tlpv1_green.png) | ![](output_files/white/round/png/marking-definition_tlpv1_green.png) |
+| marking-definition_tlpv1_amber | smo | ![](output_files/rgb/normal/png/marking-definition_tlpv1_amber.png) | ![](output_files/rgb/round/png/marking-definition_tlpv1_amber.png) | ![](output_files/black/normal/png/marking-definition_tlpv1_amber.png) | ![](output_files/black/round/png/marking-definition_tlpv1_amber.png) | ![](output_files/white/normal/png/marking-definition_tlpv1_amber.png) | ![](output_files/white/round/png/marking-definition_tlpv1_amber.png) |
+| marking-definition_tlpv1_red | smo | ![](output_files/rgb/normal/png/marking-definition_tlpv1_red.png) | ![](output_files/rgb/round/png/marking-definition_tlpv1_red.png) | ![](output_files/black/normal/png/marking-definition_tlpv1_red.png) | ![](output_files/black/round/png/marking-definition_tlpv1_red.png) | ![](output_files/white/normal/png/marking-definition_tlpv1_red.png) | ![](output_files/white/round/png/marking-definition_tlpv1_red.png) |
+| marking-definition_tlpv2_clear | smo | ![](output_files/rgb/normal/png/marking-definition_tlpv2_clear.png) | ![](output_files/rgb/round/png/marking-definition_tlpv2_clear.png) | ![](output_files/black/normal/png/marking-definition_tlpv2_clear.png) | ![](output_files/black/round/png/marking-definition_tlpv2_clear.png) | ![](output_files/white/normal/png/marking-definition_tlpv2_clear.png) | ![](output_files/white/round/png/marking-definition_tlpv2_clear.png) |
+| marking-definition_tlpv2_green | smo | ![](output_files/rgb/normal/png/marking-definition_tlpv2_green.png) | ![](output_files/rgb/round/png/marking-definition_tlpv2_green.png) | ![](output_files/black/normal/png/marking-definition_tlpv2_green.png) | ![](output_files/black/round/png/marking-definition_tlpv2_green.png) | ![](output_files/white/normal/png/marking-definition_tlpv2_green.png) | ![](output_files/white/round/png/marking-definition_tlpv2_green.png) |
+| marking-definition_tlpv2_amber | smo | ![](output_files/rgb/normal/png/marking-definition_tlpv2_amber.png) | ![](output_files/rgb/round/png/marking-definition_tlpv2_amber.png) | ![](output_files/black/normal/png/marking-definition_tlpv2_amber.png) | ![](output_files/black/round/png/marking-definition_tlpv2_amber.png) | ![](output_files/white/normal/png/marking-definition_tlpv2_amber.png) | ![](output_files/white/round/png/marking-definition_tlpv2_amber.png) |
+| marking-definition_tlpv2_amber_strict | smo | ![](output_files/rgb/normal/png/marking-definition_tlpv2_amber_strict.png) | ![](output_files/rgb/round/png/marking-definition_tlpv2_amber_strict.png) | ![](output_files/black/normal/png/marking-definition_tlpv2_amber_strict.png) | ![](output_files/black/round/png/marking-definition_tlpv2_amber_strict.png) | ![](output_files/white/normal/png/marking-definition_tlpv2_amber_strict.png) | ![](output_files/white/round/png/marking-definition_tlpv2_amber_strict.png) |
+| marking-definition_tlpv2_red | smo | ![](output_files/rgb/normal/png/marking-definition_tlpv2_red.png) | ![](output_files/rgb/round/png/marking-definition_tlpv2_red.png) | ![](output_files/black/normal/png/marking-definition_tlpv2_red.png) | ![](output_files/black/round/png/marking-definition_tlpv2_red.png) | ![](output_files/white/normal/png/marking-definition_tlpv2_red.png) | ![](output_files/white/round/png/marking-definition_tlpv2_red.png) |
+| extension-definition | smo | ![](output_files/rgb/normal/png/extension-definition.png) | ![](output_files/rgb/round/png/extension-definition.png) | ![](output_files/black/normal/png/extension-definition.png) | ![](output_files/black/round/png/extension-definition.png) | ![](output_files/white/normal/png/extension-definition.png) | ![](output_files/white/round/png/extension-definition.png) |
 
 
+## WIP
 
-### STIX Icons Available
-
-The following tables show all variations of the supported icons;
-
-#### SDOs
-
-  Object         |     RGB   | RGB, circle | Black | Black, circle | White | White, circle
-  :------------- | :--------------: | :-----------: | :--------------: | :-----------: | :--------------: | :-----------: 
-Attack Pattern | ![Attack_Pattern](./colorRGB/normal/PNG/128w/Attack_Pattern.png) | ![Attack_Pattern](./colorRGB/round/PNG/128w/Attack_Pattern_round.png) | ![Attack_Pattern](./Black/normal/PNG/128w/Attack_Pattern.png) | ![Attack_Pattern](./Black/round/PNG/128w/Attack_Pattern_round.png) | ![Attack_Pattern](./White/normal/PNG/128w/Attack_Pattern.png) | ![Attack_Pattern](./White/round/PNG/128w/Attack_Pattern_round.png)
-Campaign | ![Campaign](./colorRGB/normal/PNG/128w/Campaign.png) | ![Campaign](./colorRGB/round/PNG/128w/Campaign_round.png) | ![Campaign](./Black/normal/PNG/128w/Campaign.png) | ![Campaign](./Black/round/PNG/128w/Campaign_round.png) | ![Campaign](./White/normal/PNG/128w/Campaign.png) | ![Campaign](./White/round/PNG/128w/Campaign_round.png)
-Course of Action | ![Course_of_Action](./colorRGB/normal/PNG/128w/Course_of_Action.png) | ![Course_of_Action](./colorRGB/round/PNG/128w/Course_of_Action_round.png) | ![Course_of_Action](./Black/normal/PNG/128w/Course_of_Action.png) | ![Course_of_Action](./Black/round/PNG/128w/Course_of_Action_round.png) | ![Course_of_Action](./White/normal/PNG/128w/Course_of_Action.png) | ![Course_of_Action](./White/round/PNG/128w/Course_of_Action_round.png)
-Grouping | ![Grouping](./colorRGB/normal/PNG/128w/Grouping.png) | ![Grouping](./colorRGB/round/PNG/128w/Grouping_round.png) | ![Grouping](./Black/normal/PNG/128w/Grouping.png) | ![Grouping](./Black/round/PNG/128w/Grouping_round.png) | ![Grouping](./White/normal/PNG/128w/Grouping.png) | ![Grouping](./White/round/PNG/128w/Grouping_round.png)
-Identity Class | ![Identity_Class](./colorRGB/normal/PNG/128w/Identity_Class.png) | ![Identity_Class](./colorRGB/round/PNG/128w/Identity_Class_round.png) | ![Identity_Class](./Black/normal/PNG/128w/Identity_Class.png) | ![Identity_Class](./Black/round/PNG/128w/Identity_Class_round.png) | ![Identity_Class](./White/normal/PNG/128w/Identity_Class.png) | ![Identity_Class](./White/round/PNG/128w/Identity_Class_round.png)
-Identity Generic | ![Identity_Generic](./colorRGB/normal/PNG/128w/Identity_Generic.png) | ![Identity_Generic](./colorRGB/round/PNG/128w/Identity_Generic_round.png) | ![Identity_Generic](./Black/normal/PNG/128w/Identity_Generic.png) | ![Identity_Generic](./Black/round/PNG/128w/Identity_Generic_round.png) | ![Identity_Generic](./White/normal/PNG/128w/Identity_Generic.png) | ![Identity_Generic](./White/round/PNG/128w/Identity_Generic_round.png)
-Identity Group | ![Identity_Group](./colorRGB/normal/PNG/128w/Identity_Group.png) | ![Identity_Group](./colorRGB/round/PNG/128w/Identity_Group_round.png) | ![Identity_Group](./Black/normal/PNG/128w/Identity_Group.png) | ![Identity_Group](./Black/round/PNG/128w/Identity_Group_round.png) | ![Identity_Group](./White/normal/PNG/128w/Identity_Group.png) | ![Identity_Group](./White/round/PNG/128w/Identity_Group_round.png)
-Identity Individual | ![Identity_Individual](./colorRGB/normal/PNG/128w/Identity_Individual.png) | ![Identity_Individual](./colorRGB/round/PNG/128w/Identity_Individual_round.png) | ![Identity_Individual](./Black/normal/PNG/128w/Identity_Individual.png) | ![Identity_Individual](./Black/round/PNG/128w/Identity_Individual_round.png) | ![Identity_Individual](./White/normal/PNG/128w/Identity_Individual.png) | ![Identity_Individual](./White/round/PNG/128w/Identity_Individual_round.png)
-Identity Organization | ![Identity_Organization](./colorRGB/normal/PNG/128w/Identity_Organization.png) | ![Identity_Organization](./colorRGB/round/PNG/128w/Identity_Organization_round.png) | ![Identity_Organization](./Black/normal/PNG/128w/Identity_Organization.png) | ![Identity_Organization](./Black/round/PNG/128w/Identity_Organization_round.png) | ![Identity_Organization](./White/normal/PNG/128w/Identity_Organization.png) | ![Identity_Organization](./White/round/PNG/128w/Identity_Organization_round.png)
-Identity System | ![Identity_System](./colorRGB/normal/PNG/128w/Identity_System.png) | ![Identity_System](./colorRGB/round/PNG/128w/Identity_System_round.png) | ![Identity_System](./Black/normal/PNG/128w/Identity_System.png) | ![Identity_System](./Black/round/PNG/128w/Identity_System_round.png) | ![Identity_System](./White/normal/PNG/128w/Identity_System.png) | ![Identity_System](./White/round/PNG/128w/Identity_System_round.png)
-Incident | ![Incident](./colorRGB/normal/PNG/128w/Incident.png) | ![Incident](./colorRGB/round/PNG/128w/Incident_round.png) | ![Incident](./Black/normal/PNG/128w/Incident.png) | ![Incident](./Black/round/PNG/128w/Incident_round.png) | ![Incident](./White/normal/PNG/128w/Incident.png) | ![Incident](./White/round/PNG/128w/Incident_round.png)
-Indicator | ![Indicator](./colorRGB/normal/PNG/128w/Indicator.png) | ![Indicator](./colorRGB/round/PNG/128w/Indicator_round.png) | ![Indicator](./Black/normal/PNG/128w/Indicator.png) | ![Indicator](./Black/round/PNG/128w/Indicator_round.png) | ![Indicator](./White/normal/PNG/128w/Indicator.png) | ![Indicator](./White/round/PNG/128w/Indicator_round.png)
-Infrastructure | ![Infrastructure](./colorRGB/normal/PNG/128w/Infrastructure.png) | ![Infrastructure](./colorRGB/round/PNG/128w/Infrastructure_round.png) | ![Infrastructure](./Black/normal/PNG/128w/Infrastructure.png) | ![Infrastructure](./Black/round/PNG/128w/Infrastructure_round.png) | ![Infrastructure](./White/normal/PNG/128w/Infrastructure.png) | ![Infrastructure](./White/round/PNG/128w/Infrastructure_round.png)
-Intrusion Set | ![Intrusion_Set](./colorRGB/normal/PNG/128w/Intrusion_Set.png) | ![Intrusion_Set](./colorRGB/round/PNG/128w/Intrusion_Set_round.png) | ![Intrusion_Set](./Black/normal/PNG/128w/Intrusion_Set.png) | ![Intrusion_Set](./Black/round/PNG/128w/Intrusion_Set_round.png) | ![Intrusion_Set](./White/normal/PNG/128w/Intrusion_Set.png) | ![Intrusion_Set](./White/round/PNG/128w/Intrusion_Set_round.png)
-Location | ![Location](./colorRGB/normal/PNG/128w/Location.png) | ![Location](./colorRGB/round/PNG/128w/Location_round.png) | ![Location](./Black/normal/PNG/128w/Location.png) | ![Location](./Black/round/PNG/128w/Location_round.png) | ![Location](./White/normal/PNG/128w/Location.png) | ![Location](./White/round/PNG/128w/Location_round.png)
-Malware | ![Malware](./colorRGB/normal/PNG/128w/Malware.png) | ![Malware](./colorRGB/round/PNG/128w/Malware_round.png) | ![Malware](./Black/normal/PNG/128w/Malware.png) | ![Malware](./Black/round/PNG/128w/Malware_round.png) | ![Malware](./White/normal/PNG/128w/Malware.png) | ![Malware](./White/round/PNG/128w/Malware_round.png)
-Malware Analysis | ![Malware_Analysis](./colorRGB/normal/PNG/128w/Malware_Analysis.png) | ![Malware_Analysis](./colorRGB/round/PNG/128w/Malware_Analysis_round.png) | ![Malware_Analysis](./Black/normal/PNG/128w/Malware_Analysis.png) | ![Malware_Analysis](./Black/round/PNG/128w/Malware_Analysis_round.png) | ![Malware_Analysis](./White/normal/PNG/128w/Malware_Analysis.png) | ![Malware_Analysis](./White/round/PNG/128w/Malware_Analysis_round.png)
-Malware Family | ![Malware_Family](./colorRGB/normal/PNG/128w/Malware_Family.png) | ![Malware_Family](./colorRGB/round/PNG/128w/Malware_Family_round.png) | ![Malware_Family](./Black/normal/PNG/128w/Malware_Family.png) | ![Malware_Family](./Black/round/PNG/128w/Malware_Family_round.png) | ![Malware_Family](./White/normal/PNG/128w/Malware_Family.png) | ![Malware_Family](./White/round/PNG/128w/Malware_Family_round.png)
-Note | ![Note](./colorRGB/normal/PNG/128w/Note.png) | ![Note](./colorRGB/round/PNG/128w/Note_round.png) | ![Note](./Black/normal/PNG/128w/Note.png) | ![Note](./Black/round/PNG/128w/Note_round.png) | ![Note](./White/normal/PNG/128w/Note.png) | ![Note](./White/round/PNG/128w/Note_round.png)
-Observed Data | ![Observed_Data](./colorRGB/normal/PNG/128w/Observed_Data.png) | ![Observed_Data](./colorRGB/round/PNG/128w/Observed_Data_round.png) | ![Observed_Data](./Black/normal/PNG/128w/Observed_Data.png) | ![Observed_Data](./Black/round/PNG/128w/Observed_Data_round.png) | ![Observed_Data](./White/normal/PNG/128w/Observed_Data.png) | ![Observed_Data](./White/round/PNG/128w/Observed_Data_round.png)
-Opinion | ![Opinion](./colorRGB/normal/PNG/128w/Opinion.png) | ![Opinion](./colorRGB/round/PNG/128w/Opinion_round.png) | ![Opinion](./Black/normal/PNG/128w/Opinion.png) | ![Opinion](./Black/round/PNG/128w/Opinion_round.png) | ![Opinion](./White/normal/PNG/128w/Opinion.png) | ![Opinion](./White/round/PNG/128w/Opinion_round.png)
-Report | ![Report](./colorRGB/normal/PNG/128w/Report.png) | ![Report](./colorRGB/round/PNG/128w/Report_round.png) | ![Report](./Black/normal/PNG/128w/Report.png) | ![Report](./Black/round/PNG/128w/Report_round.png) | ![Report](./White/normal/PNG/128w/Report.png) | ![Report](./White/round/PNG/128w/Report_round.png)
-Threat Actor | ![Threat_Actor](./colorRGB/normal/PNG/128w/Threat_Actor.png) | ![Threat_Actor](./colorRGB/round/PNG/128w/Threat_Actor_round.png) | ![Threat_Actor](./Black/normal/PNG/128w/Threat_Actor.png) | ![Threat_Actor](./Black/round/PNG/128w/Threat_Actor_round.png) | ![Threat_Actor](./White/normal/PNG/128w/Threat_Actor.png) | ![Threat_Actor](./White/round/PNG/128w/Threat_Actor_round.png)
-Tool | ![Tool](./colorRGB/normal/PNG/128w/Tool.png) | ![Tool](./colorRGB/round/PNG/128w/Tool_round.png) | ![Tool](./Black/normal/PNG/128w/Tool.png) | ![Tool](./Black/round/PNG/128w/Tool_round.png) | ![Tool](./White/normal/PNG/128w/Tool.png) | ![Tool](./White/round/PNG/128w/Tool_round.png)
-Vulnerability | ![Vulnerability](./colorRGB/normal/PNG/128w/Vulnerability.png) | ![Vulnerability](./colorRGB/round/PNG/128w/Vulnerability_round.png) | ![Vulnerability](./Black/normal/PNG/128w/Vulnerability.png) | ![Vulnerability](./Black/round/PNG/128w/Vulnerability_round.png) | ![Vulnerability](./White/normal/PNG/128w/Vulnerability.png) | ![Vulnerability](./White/round/PNG/128w/Vulnerability_round.png)
-
-WIP 
+### SDOs
 
 1. Weakness
   * https://www.flaticon.com/free-icon/link-break_58899?term=break&page=1&position=29&origin=search&related_id=58899
 
-#### SCOs
-
-WIP
+### SCOs
 
 1. [Artifact Object](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_4jegwl6ojbes)
   * https://www.flaticon.com/free-icon/code_984196?term=code&page=1&position=29&origin=search&related_id=984196
@@ -100,25 +167,17 @@ WIP
 24. User Agent
   * https://fontawesome.com/icons/browser?f=classic&s=solid
 
-#### SMOs
-
-WIP
+### SMOs
 
 1. Language Content: https://www.flaticon.com/free-icon/language_484582?term=language&page=1&position=3&origin=search&related_id=484582
 2. Marking Definition: https://www.flaticon.com/free-icon/quotation-mark_32371?term=marking&page=1&position=26&origin=search&related_id=32371
   * TLP: https://fontawesome.com/icons/traffic-light?f=classic&s=solid
 3. Extension Definition: https://www.flaticon.com/free-icon/full-screen_159121?term=extend&page=1&position=29&origin=search&related_id=159121
 
-#### SROs
 
-  Object         |     RGB   | RGB, circle | Black | Black, circle | White | White, circle
-  :------------- | :--------------: | :-----------: | :--------------: | :-----------: | :--------------: | :-----------: 
-Relationship | ![Relationship](./colorRGB/normal/PNG/128w/Relationship.png) | ![Relationship](./colorRGB/round/PNG/128w/Relationship_round.png) | ![Relationship](./Black/normal/PNG/128w/Relationship.png) | ![Relationship](./Black/round/PNG/128w/Relationship_round.png) | ![Relationship](./White/normal/PNG/128w/Relationship.png) | ![Relationship](./White/round/PNG/128w/Relationship_round.png)
-Sighting | ![Sighting](./colorRGB/normal/PNG/128w/Sighting.png) | ![Sighting](./colorRGB/round/PNG/128w/Sighting_round.png) | ![Sighting](./Black/normal/PNG/128w/Sighting.png) | ![Sighting](./Black/round/PNG/128w/Sighting_round.png) | ![Sighting](./White/normal/PNG/128w/Sighting.png) | ![Sighting](./White/round/PNG/128w/Sighting_round.png)
+## Adding your own objects
 
-## Generating the objects
-
-This 
+To start with, clone this repository.
 
 ```shell
 # clone the latest code
@@ -131,7 +190,26 @@ source stix_icons-venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-Now modify your icons
+The `input_vectors` contains vector files structured as follows;
+
+```txt
+input_vectors/
+├── normal/
+│   ├── normal/
+│   │   ├── png
+│   │   └── svg
+│   ├── round/
+│   │   ├── png
+│   │   └── svg
+├── rgb/
+│   ├── normal/
+│   │   ├── png
+│   │   └── svg
+│   ├── round/
+│   │   ├── png
+│   │   └── svg
+
+```
 
 ## Credits
 
