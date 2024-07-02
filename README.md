@@ -102,18 +102,12 @@ WIP
 
 #### SMOs
 
-1. Language Content
-2. Marking Definition
-  * TLPv2 Green
-  * TLPv2 Clear
-  * TLPv2 Amber+Strict
-  * TLPv2 Amber
-  * TLPv2 Red
-  * TLPv1 White
-  * TLPv1 Green
-  * TLPv1 Amber
-  * TLPv1 Red
-3. Extension Definition
+WIP
+
+1. Language Content: https://www.flaticon.com/free-icon/language_484582?term=language&page=1&position=3&origin=search&related_id=484582
+2. Marking Definition: https://www.flaticon.com/free-icon/quotation-mark_32371?term=marking&page=1&position=26&origin=search&related_id=32371
+  * TLP: https://fontawesome.com/icons/traffic-light?f=classic&s=solid
+3. Extension Definition: https://www.flaticon.com/free-icon/full-screen_159121?term=extend&page=1&position=29&origin=search&related_id=159121
 
 #### SROs
 
