@@ -1,8 +1,8 @@
-# STIX Icons
+# stix2icons
 
 ## Overview
 
-stix-icons is a collection of icons that represent all the of core STIX objects. The aim is to provide a central source of icons that can be used to represent STIX objects by software tools (or anything else).
+stix2icons is a collection of icons that represent all the of core STIX objects. The aim is to provide a central source of icons that can be used to represent STIX objects by software tools (or anything else).
 
 This repo is designed so that new icons can be added for custom STIX objects you're developing. See: "Adding your own objects"
 
@@ -181,11 +181,11 @@ To start with, clone this repository.
 
 ```shell
 # clone the latest code
-git clone https://github.com/muchdogesec/stix_icons
+git clone https://github.com/muchdogesec/stix2icons
 # create a venv
-cd stix_icons
-python3 -m venv stix_icons-venv
-source stix_icons-venv/bin/activate
+cd stix2icons
+python3 -m venv stix2icons-venv
+source stix2icons-venv/bin/activate
 # install requirements
 pip3 install -r requirements.txt
 ```
@@ -213,7 +213,8 @@ input_vectors/
 
 ## Credits
 
-[This work is an expansion of the STIX objects created by EclecticIQ](https://github.com/eclecticiq/stix-icons/).
+* [This work is an expansion of the STIX objects created by EclecticIQ](https://github.com/eclecticiq/stix-icons/).
+* [It is also heavily inspired by this work from Bret Jordan](https://github.com/freetaxii/stix2-graphics)
 
 ## Licenses
 
