@@ -211,6 +211,10 @@ input_vectors/
 
 ```
 
+```shell
+python3 generate_icons.py
+```
+
 ## Credits
 
 * [This work is an expansion of the STIX objects created by EclecticIQ](https://github.com/eclecticiq/stix-icons/).
