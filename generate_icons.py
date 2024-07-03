@@ -1,19 +1,14 @@
 import os
-import re
 import cairosvg
-import xml.etree.ElementTree as ET
 from PIL import Image
-import io
 
 # Directory paths for normal and round input and output
 input_normal_dir = "input_vectors/normal"
+input_round_dir = "input_vectors/round"
 output_normal_dir = "output_files/rgb/normal/svg"
 output_normal_png_dir = "output_files/rgb/normal/png"
-input_round_dir = "input_vectors/round"
 output_round_dir = "output_files/rgb/round/svg"
 output_round_png_dir = "output_files/rgb/round/png"
-
-# Directories for black and white outputs
 output_black_dir = "output_files/black"
 output_white_dir = "output_files/white"
 output_black_normal_dir = os.path.join(output_black_dir, "normal/svg")
@@ -359,53 +354,16 @@ def find_colour_rgb(object_name, color='rgb'):
                 return obj['colour_rgb']
     return None
 
-def process_svg(svg_path, output_path, colour_rgb, is_round=False):
-    with open(svg_path, 'r') as file:
-        svg_content = file.read()
-
-    if is_round:
-        svg_content = re.sub(r'(<g[^>]*data-name="Layer 1"[^>]*>)', f'\\1<style>.colour-fill {{fill:rgb({colour_rgb});}}</style><g class="colour-fill">', svg_content, flags=re.IGNORECASE)
-        svg_content = re.sub(r'(<g[^>]*data-name="Layer 2"[^>]*>)', r'\1<style>.no-fill {fill:none;}</style><g class="no-fill">', svg_content, flags=re.IGNORECASE)
-        svg_content = re.sub(r'(</g>\s*</svg>)', r'</g></g>\1', svg_content, flags=re.IGNORECASE)
-    else:
-        layer1_pattern = r'(<g[^>]*data-name="Layer 1"[^>]*>)(.*?)(</g>)'
-        layer2_pattern = r'(<g[^>]*data-name="Layer 2"[^>]*>)(.*?)(</g>)'
-        
-        svg_content = re.sub(layer1_pattern, r'\1\2\3', svg_content, flags=re.DOTALL)
-        svg_content = re.sub(r'fill="none"', 'fill="none"', svg_content, flags=re.IGNORECASE)
-        svg_content = re.sub(layer2_pattern, f'\\1<g style="fill:rgb({colour_rgb});">\\2</g>\\3', svg_content, flags=re.DOTALL)
-
-    with open(output_path, 'w') as file:
-        file.write(svg_content)
+def process_svg(svg_content, colour_rgb):
+    return svg_content.replace('<path', f'<path style="fill:rgb({colour_rgb})"')
 
 def convert_svg_to_png(svg_path, png_path):
     try:
         cairosvg.svg2png(url=svg_path, write_to=png_path, output_width=256, output_height=256)
     except Exception as e:
-        print(f"Error with cairosvg conversion: {e}. Trying alternative method.")
-        try:
-            from lxml import etree
-            import rsvg
-            import cairo
-            
-            with open(svg_path, 'rb') as svg_file:
-                svg_content = svg_file.read()
-                
-            svg_handle = rsvg.Handle(data=svg_content)
-            width = svg_handle.props.width
-            height = svg_handle.props.height
-            surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, width, height)
-            context = cairo.Context(surface)
-            svg_handle.render_cairo(context)
-            image_data = surface.get_data()
+        print(f"Error with cairosvg conversion: {e}")
 
-            image = Image.frombuffer("RGBA", (width, height), image_data, "raw", "BGRA", 0, 1)
-            image = image.resize((256, 256), Image.ANTIALIAS)
-            image.save(png_path)
-        except Exception as alt_e:
-            print(f"Alternative conversion method also failed: {alt_e}")
-
-def process_directory(input_dir, output_dir, png_dir, failed_files, color='rgb', is_round=False):
+def process_directory(input_dir, output_dir, png_dir, color='rgb'):
     for root, dirs, files in os.walk(input_dir):
         for file in files:
             if file.endswith('.svg'):
@@ -421,75 +379,32 @@ def process_directory(input_dir, output_dir, png_dir, failed_files, color='rgb',
                 colour_rgb = find_colour_rgb(object_name, color)
                 
                 if colour_rgb:
-                    if is_round:
-                        process_svg(svg_path, output_path, colour_rgb, is_round)
-                    else:
-                        process_svg(svg_path, output_path, colour_rgb)
+                    with open(svg_path, 'r') as file:
+                        svg_content = file.read()
+                    
+                    processed_svg = process_svg(svg_content, colour_rgb)
+                    
+                    with open(output_path, 'w') as file:
+                        file.write(processed_svg)
                     
                     convert_svg_to_png(output_path, png_output_path)
                     print(f"Processed {svg_path} -> {output_path} and {png_output_path}")
 
-def minify_svg(svg_content):
-    tree = ET.ElementTree(ET.fromstring(svg_content))
-    for elem in tree.iter():
-        elem.text = elem.text.strip() if elem.text else None
-        elem.tail = elem.tail.strip() if elem.tail else None
-    return ET.tostring(tree.getroot(), encoding='unicode', method='xml')
-
-def minify_svgs(directory):
-    for root, dirs, files in os.walk(directory):
-        for file in files:
-            if file.endswith('.svg'):
-                svg_path = os.path.join(root, file)
-                with open(svg_path, 'r', encoding='utf-8') as f:
-                    svg_content = f.read()
-                minified_content = minify_svg(svg_content)
-                with open(svg_path, 'w', encoding='utf-8') as f:
-                    f.write(minified_content)
-                print(f"Minified {svg_path}")
-
 # Track failed files
 failed_files = []
 
-# Process the directory for normal output
-process_directory(input_normal_dir, output_normal_dir, output_normal_png_dir, failed_files)
-# Minify the SVGs in normal output directory
-minify_svgs(output_normal_dir)
-
-# Process the directory for round output with input from round directory
-process_directory(input_round_dir, output_round_dir, output_round_png_dir, failed_files, is_round=True)
-# Minify the SVGs in round output directory
-minify_svgs(output_round_dir)
+# Process the directory for normal output (RGB)
+process_directory(input_normal_dir, output_normal_dir, output_normal_png_dir)
+# Process the directory for round output (RGB)
+process_directory(input_round_dir, output_round_dir, output_round_png_dir)
 
 # Process the directory for black output
-process_directory(input_normal_dir, output_black_normal_dir, output_black_normal_png_dir, failed_files, color='black')
-minify_svgs(output_black_normal_dir)
-process_directory(input_round_dir, output_black_round_dir, output_black_round_png_dir, failed_files, color='black', is_round=True)
-minify_svgs(output_black_round_dir)
+process_directory(input_normal_dir, output_black_normal_dir, output_black_normal_png_dir, color='black')
+process_directory(input_round_dir, output_black_round_dir, output_black_round_png_dir, color='black')
 
 # Process the directory for white output
-process_directory(input_normal_dir, output_white_normal_dir, output_white_normal_png_dir, failed_files, color='white')
-minify_svgs(output_white_normal_dir)
-process_directory(input_round_dir, output_white_round_dir, output_white_round_png_dir, failed_files, color='white', is_round=True)
-minify_svgs(output_white_round_dir)
-
-# Generate Markdown table
-markdown_table = "| Object | Type | RGB | RGBCircle | Black | BlackCircle | White | WhiteCircle |\n"
-markdown_table += "|--------|------|-----|-----------|-------|-------------|-------|-------------|\n"
-
-for obj in objects:
-    object_name = obj['object']
-    object_type = obj['type']
-    rgb_png = os.path.join(output_normal_png_dir, f"{object_type}/{object_name}.png")
-    rgb_circle_png = os.path.join(output_round_png_dir, f"{object_type}/{object_name}.png")
-    black_png = os.path.join(output_black_normal_png_dir, f"{object_type}/{object_name}.png")
-    black_circle_png = os.path.join(output_black_round_png_dir, f"{object_type}/{object_name}.png")
-    white_png = os.path.join(output_white_normal_png_dir, f"{object_type}/{object_name}.png")
-    white_circle_png = os.path.join(output_white_round_png_dir, f"{object_type}/{object_name}.png")
-
-    markdown_table += f"| {object_name} | {object_type} | ![]({rgb_png}) | ![]({rgb_circle_png}) | ![]({black_png}) | ![]({black_circle_png}) | ![]({white_png}) | ![]({white_circle_png}) |\n"
-
-print(markdown_table)
+process_directory(input_normal_dir, output_white_normal_dir, output_white_normal_png_dir, color='white')
+process_directory(input_round_dir, output_white_round_dir, output_white_round_png_dir, color='white')
 
 # Print list of files that were not created
 if failed_files:
