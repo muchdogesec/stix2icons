@@ -10,7 +10,7 @@ This repo is designed so that new icons can be added for custom STIX objects you
 
 The icons are provided in three colour versions: color, black, and white.
 
-There are two variations of each colour provided: with (normal) and without a 'circle' (round) behind the icons.
+There are two variations of each colour provided; 1) with (normal) and 2) without a 'circle' (round) behind the icons.
 
 Each icon has an `.svg` version and a `.png` (256x256) version. Generally you should use the `.svg` version and scale as required.
 
@@ -161,7 +161,7 @@ This will generate a black, white and colour version of your object as an `svg` 
 
 ## Credits
 
-* [This work is an expansion of the STIX objects created by EclecticIQ](https://github.com/eclecticiq/stix-icons/).
+* [This work is an expansion of the STIX objects created by EclecticIQ](https://github.com/eclecticiq/stix-icons/)
 * [It is also heavily inspired by this work from Bret Jordan](https://github.com/freetaxii/stix2-graphics)
 
 ## Support
