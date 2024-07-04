@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--https://github.com/muchdogesec/stix2icons/-->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85 85" id="marking-definition_tlp">
-	<circle style="fill:rgb(255,255,255)" cx="42.5" cy="42.5" r="7.8"/>
-	<circle style="fill:rgb(255,255,255)" cx="42.5" cy="60.7" r="7.8"/>
-	<path style="fill:rgb(255,255,255)" d="M42.5,0C19,0,0,19,0,42.5S19,85,42.5,85S85,66,85,42.5S66,0,42.5,0z M58.1,68.5c0,2.9-2.3,5.2-5.2,5.2H32.1c-2.9,0-5.2-2.3-5.2-5.2v-52c0-2.9,2.3-5.2,5.2-5.2h20.8c2.9,0,5.2,2.3,5.2,5.2V68.5z"/>
-	<circle style="fill:rgb(255,255,255)" cx="42.5" cy="24.3" r="7.8"/>
-</svg>
