@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--https://github.com/muchdogesec/stix2icons/-->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85 85" id="identity_system">
   <path style="fill:rgb(255,255,255)" d="m30.94,49.97c-1.75,0-3.17,1.42-3.17,3.17s1.42,3.17,3.17,3.17,3.17-1.42,3.17-3.17-1.42-3.17-3.17-3.17Z"/>
   <path style="fill:rgb(255,255,255)" d="m30.94,28.69c-1.75,0-3.17,1.42-3.17,3.17s1.42,3.17,3.17,3.17,3.17-1.42,3.17-3.17-1.42-3.17-3.17-3.17Z"/>
