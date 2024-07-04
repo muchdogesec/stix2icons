@@ -21,326 +21,61 @@ output_white_round_dir = os.path.join(output_white_dir, "round/svg")
 output_white_round_png_dir = os.path.join(output_white_dir, "round/png")
 
 objects = [
-    {
-        "object": "attack-pattern",
-        "type": "sdo",
-        "colour_rgb": "34,119,181"
-    },
-    {
-        "object": "campaign",
-        "type": "sdo",
-        "colour_rgb": "80,182,30"
-    },
-    {
-        "object": "course-of-action",
-        "type": "sdo",
-        "colour_rgb": "161,198,40"
-    },
-    {
-        "object": "grouping",
-        "type": "sdo",
-        "colour_rgb": "163,53,139"
-    },
-    {
-        "object": "identity",
-        "type": "sdo",
-        "colour_rgb": "146,150,151"
-    },
-    {
-        "object": "identity_group",
-        "type": "sdo",
-        "colour_rgb": "146,150,151"
-    },
-    {
-        "object": "identity_system",
-        "type": "sdo",
-        "colour_rgb": "146,150,151"
-    },
-    {
-        "object": "identity_organization",
-        "type": "sdo",
-        "colour_rgb": "146,150,151"
-    },
-    {
-        "object": "identity_individual",
-        "type": "sdo",
-        "colour_rgb": "146,150,151"
-    },
-    {
-        "object": "identity_class",
-        "type": "sdo",
-        "colour_rgb": "146,150,151"
-    },
-    {
-        "object": "incident",
-        "type": "sdo",
-        "colour_rgb": "251,182,22"
-    },
-    {
-        "object": "indicator",
-        "type": "sdo",
-        "colour_rgb": "220,149,71"
-    },
-    {
-        "object": "infrastructure",
-        "type": "sdo",
-        "colour_rgb": "174,215,191"
-    },
-    {
-        "object": "intrusion-set",
-        "type": "sdo",
-        "colour_rgb": "56,178,193"
-    },
-    {
-        "object": "location",
-        "type": "sdo",
-        "colour_rgb": "80,86,87"
-    },
-    {
-        "object": "malware",
-        "type": "sdo",
-        "colour_rgb": "212,163,203"
-    },
-    {
-        "object": "malware_family",
-        "type": "sdo",
-        "colour_rgb": "221,140,187"
-    },
-    {
-        "object": "malware-analysis",
-        "type": "sdo",
-        "colour_rgb": "231,118,172"
-    },
-    {
-        "object": "note",
-        "type": "sdo",
-        "colour_rgb": "80,86,87"
-    },
-    {
-        "object": "observed-data",
-        "type": "sdo",
-        "colour_rgb": "0,0,0"
-    },
-    {
-        "object": "opinion",
-        "type": "sdo",
-        "colour_rgb": "80,86,87"
-    },
-    {
-        "object": "report",
-        "type": "sdo",
-        "colour_rgb": "119,146,121"
-    },
-    {
-        "object": "threat-actor",
-        "type": "sdo",
-        "colour_rgb": "230,27,92"
-    },
-    {
-        "object": "tool",
-        "type": "sdo",
-        "colour_rgb": "87,80,157"
-    },
-    {
-        "object": "vulnerability",
-        "type": "sdo",
-        "colour_rgb": "255,209,0"
-    },
-    {
-        "object": "weakness",
-        "type": "sdo",
-        "colour_rgb": "134,0,255"
-    },
-    {
-        "object": "artifact",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "autonomous-system",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "directory",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "domain-name",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "email-addr",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "email-message",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "file",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "ipv4-addr",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "ipv6-addr",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "mac-addr",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "mutex",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "network-traffic",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "process",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "software",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "url",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "user-account",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "windows-registry-key",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "x509-certificate",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "bank-account",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "bank-card",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "cryptocurrency-transaction",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "cryptocurrency-wallet",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "phone-number",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "user-agent",
-        "type": "sco",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "relationship",
-        "type": "sro",
-        "colour_rgb": "205,214,216"
-    },
-    {
-        "object": "sighting",
-        "type": "sro",
-        "colour_rgb": "235,94,42"
-    },
-    {
-        "object": "language-content",
-        "type": "smo",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "marking-definition",
-        "type": "smo",
-        "colour_rgb": "192,192,192"
-    },
-    {
-        "object": "marking-definition_tlpv1_white",
-        "type": "smo",
-        "colour_rgb": "255,255,255"
-    },
-    {
-        "object": "marking-definition_tlpv1_green",
-        "type": "smo",
-        "colour_rgb": "51,255,0"
-    },
-    {
-        "object": "marking-definition_tlpv1_amber",
-        "type": "smo",
-        "colour_rgb": "255,192,0"
-    },
-    {
-        "object": "marking-definition_tlpv1_red",
-        "type": "smo",
-        "colour_rgb": "255,0,51"
-    },
-    {
-        "object": "marking-definition_tlpv2_clear",
-        "type": "smo",
-        "colour_rgb": "255,255,255"
-    },
-    {
-        "object": "marking-definition_tlpv2_green",
-        "type": "smo",
-        "colour_rgb": "51,255,0"
-    },
-    {
-        "object": "marking-definition_tlpv2_amber",
-        "type": "smo",
-        "colour_rgb": "255,192,0"
-    },
-    {
-        "object": "marking-definition_tlpv2_amber_strict",
-        "type": "smo",
-        "colour_rgb": "255,192,0"
-    },
-    {
-        "object": "marking-definition_tlpv2_red",
-        "type": "smo",
-        "colour_rgb": "255,0,51"
-    },
-    {
-        "object": "extension-definition",
-        "type": "smo",
-        "colour_rgb": "192,192,192"
-    }
+    {"object": "attack-pattern", "type": "sdo", "colour_rgb": "34,119,181"},
+    {"object": "campaign", "type": "sdo", "colour_rgb": "80,182,30"},
+    {"object": "course-of-action", "type": "sdo", "colour_rgb": "161,198,40"},
+    {"object": "grouping", "type": "sdo", "colour_rgb": "163,53,139"},
+    {"object": "identity", "type": "sdo", "colour_rgb": "146,150,151"},
+    {"object": "identity_group", "type": "sdo", "colour_rgb": "146,150,151"},
+    {"object": "identity_system", "type": "sdo", "colour_rgb": "146,150,151"},
+    {"object": "identity_organization", "type": "sdo", "colour_rgb": "146,150,151"},
+    {"object": "identity_individual", "type": "sdo", "colour_rgb": "146,150,151"},
+    {"object": "identity_class", "type": "sdo", "colour_rgb": "146,150,151"},
+    {"object": "incident", "type": "sdo", "colour_rgb": "251,182,22"},
+    {"object": "indicator", "type": "sdo", "colour_rgb": "220,149,71"},
+    {"object": "infrastructure", "type": "sdo", "colour_rgb": "174,215,191"},
+    {"object": "intrusion-set", "type": "sdo", "colour_rgb": "56,178,193"},
+    {"object": "location", "type": "sdo", "colour_rgb": "80,86,87"},
+    {"object": "malware", "type": "sdo", "colour_rgb": "212,163,203"},
+    {"object": "malware_family", "type": "sdo", "colour_rgb": "221,140,187"},
+    {"object": "malware-analysis", "type": "sdo", "colour_rgb": "231,118,172"},
+    {"object": "note", "type": "sdo", "colour_rgb": "80,86,87"},
+    {"object": "observed-data", "type": "sdo", "colour_rgb": "0,0,0"},
+    {"object": "opinion", "type": "sdo", "colour_rgb": "80,86,87"},
+    {"object": "report", "type": "sdo", "colour_rgb": "119,146,121"},
+    {"object": "threat-actor", "type": "sdo", "colour_rgb": "230,27,92"},
+    {"object": "tool", "type": "sdo", "colour_rgb": "87,80,157"},
+    {"object": "vulnerability", "type": "sdo", "colour_rgb": "255,209,0"},
+    {"object": "weakness", "type": "sdo", "colour_rgb": "134,0,255"},
+    {"object": "artifact", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "autonomous-system", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "directory", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "domain-name", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "email-addr", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "email-message", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "file", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "ipv4-addr", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "ipv6-addr", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "mac-addr", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "mutex", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "network-traffic", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "process", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "software", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "url", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "user-account", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "windows-registry-key", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "x509-certificate", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "bank-account", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "bank-card", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "cryptocurrency-transaction", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "cryptocurrency-wallet", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "phone-number", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "user-agent", "type": "sco", "colour_rgb": "192,192,192"},
+    {"object": "relationship", "type": "sro", "colour_rgb": "205,214,216"},
+    {"object": "sighting", "type": "sro", "colour_rgb": "235,94,42"},
+    {"object": "language-content", "type": "smo", "colour_rgb": "255,23,68"},
+    {"object": "marking-definition", "type": "smo", "colour_rgb": "38,198,218"},
+    {"object": "extension-definition", "type": "smo", "colour_rgb": "178,255,89"}
 ]
 
 def find_colour_rgb(object_name, color='rgb'):
@@ -373,7 +108,7 @@ def process_directory(input_dir, output_dir, png_dir, color='rgb'):
                 svg_path = os.path.join(root, file)
                 relative_path = os.path.relpath(svg_path, input_dir)
                 output_path = os.path.join(output_dir, relative_path)
-                png_output_path = os.path.join(png_dir, os.path.splitext(relative_path)[0] + '.png')
+                png_output_path = os.path.join(png_dir, relative_path).replace('.svg', '.png')
                 
                 os.makedirs(os.path.dirname(output_path), exist_ok=True)
                 os.makedirs(os.path.dirname(png_output_path), exist_ok=True)
@@ -393,6 +128,62 @@ def process_directory(input_dir, output_dir, png_dir, color='rgb'):
                     convert_svg_to_png(output_path, png_output_path)
                     print(f"Processed {svg_path} -> {output_path} and {png_output_path}")
 
+def process_tlp_icons():
+    special_icons = [
+        {"object": "marking-definition_tlp_white", "type": "smo", "colour_rgb": "255,255,255"},
+        {"object": "marking-definition_tlp_clear", "type": "smo", "colour_rgb": "255,255,255"},
+        {"object": "marking-definition_tlp_green", "type": "smo", "colour_rgb": "51,255,0"},
+        {"object": "marking-definition_tlp_amber", "type": "smo", "colour_rgb": "255,192,0"},
+        {"object": "marking-definition_tlp_amber_strict", "type": "smo", "colour_rgb": "255,192,0"},
+        {"object": "marking-definition_tlp_red", "type": "smo", "colour_rgb": "255,0,51"}
+    ]
+
+    input_normal_svg = "input_vectors/normal/smo/marking-definition_tlp.svg"
+    #input_round_svg = "input_vectors/round/smo/marking-definition_tlp.svg"
+
+    for icon in special_icons:
+        object_name = icon["object"]
+        colour_rgb = icon["colour_rgb"]
+
+        for input_svg, output_dir, png_dir in [
+            (input_normal_svg, output_normal_dir, output_normal_png_dir),
+            #(input_round_svg, output_round_dir, output_round_png_dir)
+        ]:
+            output_svg_path = os.path.join(output_dir, "smo", f"{object_name}.svg")
+            output_png_path = os.path.join(png_dir, "smo", f"{object_name}.png")
+
+            os.makedirs(os.path.dirname(output_svg_path), exist_ok=True)
+            os.makedirs(os.path.dirname(output_png_path), exist_ok=True)
+
+            with open(input_svg, 'r') as file:
+                svg_content = file.read()
+
+            processed_svg = process_svg(svg_content, colour_rgb)
+
+            with open(output_svg_path, 'w') as file:
+                file.write(processed_svg)
+
+            convert_svg_to_png(output_svg_path, output_png_path)
+            print(f"Processed {input_svg} -> {output_svg_path} and {output_png_path}")
+
+def generate_markdown_table():
+    markdown_table = "| Object | Type | RGB | RGB Circle | Black | Black Circle | White | White Circle |\n"
+    markdown_table += "|--------|------|-----|-----------|-------|-------------|-------|-------------|\n"
+    
+    for obj in objects:
+        object_name = obj['object']
+        object_type = obj['type']
+        rgb_png = os.path.join(output_normal_png_dir, object_type, f"{object_name}.png")
+        rgb_circle_png = os.path.join(output_round_png_dir, object_type, f"{object_name}.png")
+        black_png = os.path.join(output_black_normal_png_dir, object_type, f"{object_name}.png")
+        black_circle_png = os.path.join(output_black_round_png_dir, object_type, f"{object_name}.png")
+        white_png = os.path.join(output_white_normal_png_dir, object_type, f"{object_name}.png")
+        white_circle_png = os.path.join(output_white_round_png_dir, object_type, f"{object_name}.png")
+
+        markdown_table += f"| {object_name} | {object_type} | ![]({rgb_png}) | ![]({rgb_circle_png}) | ![]({black_png}) | ![]({black_circle_png}) | ![]({white_png}) | ![]({white_circle_png}) |\n"
+    
+    print(markdown_table)
+
 # Track failed files
 failed_files = []
 
@@ -408,6 +199,12 @@ process_directory(input_round_dir, output_black_round_dir, output_black_round_pn
 # Process the directory for white output
 process_directory(input_normal_dir, output_white_normal_dir, output_white_normal_png_dir, color='white')
 process_directory(input_round_dir, output_white_round_dir, output_white_round_png_dir, color='white')
+
+# Process the special icons
+process_tlp_icons()
+
+# Generate and print the Markdown table
+generate_markdown_table()
 
 # Print list of files that were not created
 if failed_files:

@@ -41,7 +41,7 @@ output/
 
 ## Currently supported objects
 
-| Object | Type | RGB | RGBCircle | Black | BlackCircle | White | WhiteCircle |
+| Object | Type | RGB | RGB Circle | Black | Black Circle | White | White Circle |
 |--------|------|-----|-----------|-------|-------------|-------|-------------|
 | attack-pattern | sdo | ![](output_files/rgb/normal/png/sdo/attack-pattern.png) | ![](output_files/rgb/round/png/sdo/attack-pattern.png) | ![](output_files/black/normal/png/sdo/attack-pattern.png) | ![](output_files/black/round/png/sdo/attack-pattern.png) | ![](output_files/white/normal/png/sdo/attack-pattern.png) | ![](output_files/white/round/png/sdo/attack-pattern.png) |
 | campaign | sdo | ![](output_files/rgb/normal/png/sdo/campaign.png) | ![](output_files/rgb/round/png/sdo/campaign.png) | ![](output_files/black/normal/png/sdo/campaign.png) | ![](output_files/black/round/png/sdo/campaign.png) | ![](output_files/white/normal/png/sdo/campaign.png) | ![](output_files/white/round/png/sdo/campaign.png) |
@@ -68,47 +68,37 @@ output/
 | threat-actor | sdo | ![](output_files/rgb/normal/png/sdo/threat-actor.png) | ![](output_files/rgb/round/png/sdo/threat-actor.png) | ![](output_files/black/normal/png/sdo/threat-actor.png) | ![](output_files/black/round/png/sdo/threat-actor.png) | ![](output_files/white/normal/png/sdo/threat-actor.png) | ![](output_files/white/round/png/sdo/threat-actor.png) |
 | tool | sdo | ![](output_files/rgb/normal/png/sdo/tool.png) | ![](output_files/rgb/round/png/sdo/tool.png) | ![](output_files/black/normal/png/sdo/tool.png) | ![](output_files/black/round/png/sdo/tool.png) | ![](output_files/white/normal/png/sdo/tool.png) | ![](output_files/white/round/png/sdo/tool.png) |
 | vulnerability | sdo | ![](output_files/rgb/normal/png/sdo/vulnerability.png) | ![](output_files/rgb/round/png/sdo/vulnerability.png) | ![](output_files/black/normal/png/sdo/vulnerability.png) | ![](output_files/black/round/png/sdo/vulnerability.png) | ![](output_files/white/normal/png/sdo/vulnerability.png) | ![](output_files/white/round/png/sdo/vulnerability.png) |
+| weakness | sdo | ![](output_files/rgb/normal/png/sdo/weakness.png) | ![](output_files/rgb/round/png/sdo/weakness.png) | ![](output_files/black/normal/png/sdo/weakness.png) | ![](output_files/black/round/png/sdo/weakness.png) | ![](output_files/white/normal/png/sdo/weakness.png) | ![](output_files/white/round/png/sdo/weakness.png) |
+| artifact | sco | ![](output_files/rgb/normal/png/sco/artifact.png) | ![](output_files/rgb/round/png/sco/artifact.png) | ![](output_files/black/normal/png/sco/artifact.png) | ![](output_files/black/round/png/sco/artifact.png) | ![](output_files/white/normal/png/sco/artifact.png) | ![](output_files/white/round/png/sco/artifact.png) |
+| autonomous-system | sco | ![](output_files/rgb/normal/png/sco/autonomous-system.png) | ![](output_files/rgb/round/png/sco/autonomous-system.png) | ![](output_files/black/normal/png/sco/autonomous-system.png) | ![](output_files/black/round/png/sco/autonomous-system.png) | ![](output_files/white/normal/png/sco/autonomous-system.png) | ![](output_files/white/round/png/sco/autonomous-system.png) |
+| directory | sco | ![](output_files/rgb/normal/png/sco/directory.png) | ![](output_files/rgb/round/png/sco/directory.png) | ![](output_files/black/normal/png/sco/directory.png) | ![](output_files/black/round/png/sco/directory.png) | ![](output_files/white/normal/png/sco/directory.png) | ![](output_files/white/round/png/sco/directory.png) |
+| domain-name | sco | ![](output_files/rgb/normal/png/sco/domain-name.png) | ![](output_files/rgb/round/png/sco/domain-name.png) | ![](output_files/black/normal/png/sco/domain-name.png) | ![](output_files/black/round/png/sco/domain-name.png) | ![](output_files/white/normal/png/sco/domain-name.png) | ![](output_files/white/round/png/sco/domain-name.png) |
+| email-addr | sco | ![](output_files/rgb/normal/png/sco/email-addr.png) | ![](output_files/rgb/round/png/sco/email-addr.png) | ![](output_files/black/normal/png/sco/email-addr.png) | ![](output_files/black/round/png/sco/email-addr.png) | ![](output_files/white/normal/png/sco/email-addr.png) | ![](output_files/white/round/png/sco/email-addr.png) |
+| email-message | sco | ![](output_files/rgb/normal/png/sco/email-message.png) | ![](output_files/rgb/round/png/sco/email-message.png) | ![](output_files/black/normal/png/sco/email-message.png) | ![](output_files/black/round/png/sco/email-message.png) | ![](output_files/white/normal/png/sco/email-message.png) | ![](output_files/white/round/png/sco/email-message.png) |
+| file | sco | ![](output_files/rgb/normal/png/sco/file.png) | ![](output_files/rgb/round/png/sco/file.png) | ![](output_files/black/normal/png/sco/file.png) | ![](output_files/black/round/png/sco/file.png) | ![](output_files/white/normal/png/sco/file.png) | ![](output_files/white/round/png/sco/file.png) |
+| ipv4-addr | sco | ![](output_files/rgb/normal/png/sco/ipv4-addr.png) | ![](output_files/rgb/round/png/sco/ipv4-addr.png) | ![](output_files/black/normal/png/sco/ipv4-addr.png) | ![](output_files/black/round/png/sco/ipv4-addr.png) | ![](output_files/white/normal/png/sco/ipv4-addr.png) | ![](output_files/white/round/png/sco/ipv4-addr.png) |
+| ipv6-addr | sco | ![](output_files/rgb/normal/png/sco/ipv6-addr.png) | ![](output_files/rgb/round/png/sco/ipv6-addr.png) | ![](output_files/black/normal/png/sco/ipv6-addr.png) | ![](output_files/black/round/png/sco/ipv6-addr.png) | ![](output_files/white/normal/png/sco/ipv6-addr.png) | ![](output_files/white/round/png/sco/ipv6-addr.png) |
+| mac-addr | sco | ![](output_files/rgb/normal/png/sco/mac-addr.png) | ![](output_files/rgb/round/png/sco/mac-addr.png) | ![](output_files/black/normal/png/sco/mac-addr.png) | ![](output_files/black/round/png/sco/mac-addr.png) | ![](output_files/white/normal/png/sco/mac-addr.png) | ![](output_files/white/round/png/sco/mac-addr.png) |
+| mutex | sco | ![](output_files/rgb/normal/png/sco/mutex.png) | ![](output_files/rgb/round/png/sco/mutex.png) | ![](output_files/black/normal/png/sco/mutex.png) | ![](output_files/black/round/png/sco/mutex.png) | ![](output_files/white/normal/png/sco/mutex.png) | ![](output_files/white/round/png/sco/mutex.png) |
+| network-traffic | sco | ![](output_files/rgb/normal/png/sco/network-traffic.png) | ![](output_files/rgb/round/png/sco/network-traffic.png) | ![](output_files/black/normal/png/sco/network-traffic.png) | ![](output_files/black/round/png/sco/network-traffic.png) | ![](output_files/white/normal/png/sco/network-traffic.png) | ![](output_files/white/round/png/sco/network-traffic.png) |
+| process | sco | ![](output_files/rgb/normal/png/sco/process.png) | ![](output_files/rgb/round/png/sco/process.png) | ![](output_files/black/normal/png/sco/process.png) | ![](output_files/black/round/png/sco/process.png) | ![](output_files/white/normal/png/sco/process.png) | ![](output_files/white/round/png/sco/process.png) |
+| software | sco | ![](output_files/rgb/normal/png/sco/software.png) | ![](output_files/rgb/round/png/sco/software.png) | ![](output_files/black/normal/png/sco/software.png) | ![](output_files/black/round/png/sco/software.png) | ![](output_files/white/normal/png/sco/software.png) | ![](output_files/white/round/png/sco/software.png) |
+| url | sco | ![](output_files/rgb/normal/png/sco/url.png) | ![](output_files/rgb/round/png/sco/url.png) | ![](output_files/black/normal/png/sco/url.png) | ![](output_files/black/round/png/sco/url.png) | ![](output_files/white/normal/png/sco/url.png) | ![](output_files/white/round/png/sco/url.png) |
+| user-account | sco | ![](output_files/rgb/normal/png/sco/user-account.png) | ![](output_files/rgb/round/png/sco/user-account.png) | ![](output_files/black/normal/png/sco/user-account.png) | ![](output_files/black/round/png/sco/user-account.png) | ![](output_files/white/normal/png/sco/user-account.png) | ![](output_files/white/round/png/sco/user-account.png) |
+| windows-registry-key | sco | ![](output_files/rgb/normal/png/sco/windows-registry-key.png) | ![](output_files/rgb/round/png/sco/windows-registry-key.png) | ![](output_files/black/normal/png/sco/windows-registry-key.png) | ![](output_files/black/round/png/sco/windows-registry-key.png) | ![](output_files/white/normal/png/sco/windows-registry-key.png) | ![](output_files/white/round/png/sco/windows-registry-key.png) |
+| x509-certificate | sco | ![](output_files/rgb/normal/png/sco/x509-certificate.png) | ![](output_files/rgb/round/png/sco/x509-certificate.png) | ![](output_files/black/normal/png/sco/x509-certificate.png) | ![](output_files/black/round/png/sco/x509-certificate.png) | ![](output_files/white/normal/png/sco/x509-certificate.png) | ![](output_files/white/round/png/sco/x509-certificate.png) |
+| bank-account | sco | ![](output_files/rgb/normal/png/sco/bank-account.png) | ![](output_files/rgb/round/png/sco/bank-account.png) | ![](output_files/black/normal/png/sco/bank-account.png) | ![](output_files/black/round/png/sco/bank-account.png) | ![](output_files/white/normal/png/sco/bank-account.png) | ![](output_files/white/round/png/sco/bank-account.png) |
+| bank-card | sco | ![](output_files/rgb/normal/png/sco/bank-card.png) | ![](output_files/rgb/round/png/sco/bank-card.png) | ![](output_files/black/normal/png/sco/bank-card.png) | ![](output_files/black/round/png/sco/bank-card.png) | ![](output_files/white/normal/png/sco/bank-card.png) | ![](output_files/white/round/png/sco/bank-card.png) |
+| cryptocurrency-transaction | sco | ![](output_files/rgb/normal/png/sco/cryptocurrency-transaction.png) | ![](output_files/rgb/round/png/sco/cryptocurrency-transaction.png) | ![](output_files/black/normal/png/sco/cryptocurrency-transaction.png) | ![](output_files/black/round/png/sco/cryptocurrency-transaction.png) | ![](output_files/white/normal/png/sco/cryptocurrency-transaction.png) | ![](output_files/white/round/png/sco/cryptocurrency-transaction.png) |
+| cryptocurrency-wallet | sco | ![](output_files/rgb/normal/png/sco/cryptocurrency-wallet.png) | ![](output_files/rgb/round/png/sco/cryptocurrency-wallet.png) | ![](output_files/black/normal/png/sco/cryptocurrency-wallet.png) | ![](output_files/black/round/png/sco/cryptocurrency-wallet.png) | ![](output_files/white/normal/png/sco/cryptocurrency-wallet.png) | ![](output_files/white/round/png/sco/cryptocurrency-wallet.png) |
+| phone-number | sco | ![](output_files/rgb/normal/png/sco/phone-number.png) | ![](output_files/rgb/round/png/sco/phone-number.png) | ![](output_files/black/normal/png/sco/phone-number.png) | ![](output_files/black/round/png/sco/phone-number.png) | ![](output_files/white/normal/png/sco/phone-number.png) | ![](output_files/white/round/png/sco/phone-number.png) |
+| user-agent | sco | ![](output_files/rgb/normal/png/sco/user-agent.png) | ![](output_files/rgb/round/png/sco/user-agent.png) | ![](output_files/black/normal/png/sco/user-agent.png) | ![](output_files/black/round/png/sco/user-agent.png) | ![](output_files/white/normal/png/sco/user-agent.png) | ![](output_files/white/round/png/sco/user-agent.png) |
+| relationship | sro | ![](output_files/rgb/normal/png/sro/relationship.png) | ![](output_files/rgb/round/png/sro/relationship.png) | ![](output_files/black/normal/png/sro/relationship.png) | ![](output_files/black/round/png/sro/relationship.png) | ![](output_files/white/normal/png/sro/relationship.png) | ![](output_files/white/round/png/sro/relationship.png) |
+| sighting | sro | ![](output_files/rgb/normal/png/sro/sighting.png) | ![](output_files/rgb/round/png/sro/sighting.png) | ![](output_files/black/normal/png/sro/sighting.png) | ![](output_files/black/round/png/sro/sighting.png) | ![](output_files/white/normal/png/sro/sighting.png) | ![](output_files/white/round/png/sro/sighting.png) |
+| language-content | smo | ![](output_files/rgb/normal/png/smo/language-content.png) | ![](output_files/rgb/round/png/smo/language-content.png) | ![](output_files/black/normal/png/smo/language-content.png) | ![](output_files/black/round/png/smo/language-content.png) | ![](output_files/white/normal/png/smo/language-content.png) | ![](output_files/white/round/png/smo/language-content.png) |
+| marking-definition | smo | ![](output_files/rgb/normal/png/smo/marking-definition.png) | ![](output_files/rgb/round/png/smo/marking-definition.png) | ![](output_files/black/normal/png/smo/marking-definition.png) | ![](output_files/black/round/png/smo/marking-definition.png) | ![](output_files/white/normal/png/smo/marking-definition.png) | ![](output_files/white/round/png/smo/marking-definition.png) |
+| extension-definition | smo | ![](output_files/rgb/normal/png/smo/extension-definition.png) | ![](output_files/rgb/round/png/smo/extension-definition.png) | ![](output_files/black/normal/png/smo/extension-definition.png) | ![](output_files/black/round/png/smo/extension-definition.png) | ![](output_files/white/normal/png/smo/extension-definition.png) | ![](output_files/white/round/png/smo/extension-definition.png) |
 
-## WIP
-
-### SDOs
-
-1. Weakness
-
-### SCOs
-
-1. Artifact Object
-2. AS Object
-3. Directory Object
-4. Domain Name Object
-5. Email Address Object
-6. Email Message Object
-7. File Object
-8. IPv4 Address Object
-9. IPv6 Address Object
-10. MAC Address Object
-11. Mutex Object
-12. Network Traffic Object
-13. Process Object
-14. Software Object
-15. URL Object
-16. User Account Object
-17. Windows Registry Key Object
-18. X.509 Certificate Object
-19. Bank Card
-20. Bank Account
-21. Cryptocurrency Wallet
-22. Cryptocurrency Transaction 
-23. Phone Number
-24. User Agent
-  * https://fontawesome.com/icons/browser?f=classic&s=solid
-
-### SMOs
-
-1. Language Content
-2. Marking Definition
-  * TLP
-3. Extension Definition
 
 ## Adding your own objects
 
@@ -125,30 +115,45 @@ source stix2icons-venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-The `input_vectors` contains vector files structured as follows;
+The `input_vectors` contains vector files (`.svg`s) structured as follows;
 
 ```txt
 input_vectors/
 ├── normal/
-│   ├── normal/
-│   │   ├── png
-│   │   └── svg
-│   ├── round/
-│   │   ├── png
-│   │   └── svg
-├── rgb/
-│   ├── normal/
-│   │   ├── png
-│   │   └── svg
-│   ├── round/
-│   │   ├── png
-│   │   └── svg
-
+│   ├── sco/
+│   ├── sdo/
+│   ├── smo/
+│   └── sro/
+└── round/
+    ├── sco/
+    ├── sdo/
+    ├── smo/
+    └── sro/
 ```
+
+Where `sco`, `sdo`, `smo`, or `sro` is the type of STIX object.
+
+When adding objects you should place it in the the correct directory, ideally supplying both a `normal` and `round` variation.
+
+You should keep your `svg` files as simple as possible, using only paths and shapes, avoiding the use of groups. This is because the `output_files` are generated automatically and the script that performs the generation is not always smart enough to handle groupings correctly.
+
+Once you have added a `normal` and `round` variation of your object you need to add an entry for it in `generate_icons.py` under `objects` in the format;
+
+```json
+    {
+        "object": "<STIX OBJECT>",
+        "type": "<TYPE>",
+        "colour_rgb": "<COLOUR IN R,G,B"
+    }
+```
+
+Once done, you can then run the script;
 
 ```shell
 python3 generate_icons.py
 ```
+
+This will generate a black, white and colour version of your object as an `svg` and `png` (256x256).
 
 ## Credits
 
