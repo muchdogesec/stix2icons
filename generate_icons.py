@@ -355,7 +355,10 @@ def find_colour_rgb(object_name, color='rgb'):
     return None
 
 def process_svg(svg_content, colour_rgb):
-    return svg_content.replace('<path', f'<path style="fill:rgb({colour_rgb})"')
+    svg_content = svg_content.replace('<path', f'<path style="fill:rgb({colour_rgb})"')
+    svg_content = svg_content.replace('<rect', f'<rect style="fill:rgb({colour_rgb})"')
+    svg_content = svg_content.replace('<circle', f'<circle style="fill:rgb({colour_rgb})"')
+    return svg_content
 
 def convert_svg_to_png(svg_path, png_path):
     try:
