@@ -25,23 +25,23 @@ objects = [
     {"object": "campaign", "type": "sdo", "colour_rgb": "80,182,30"},
     {"object": "course-of-action", "type": "sdo", "colour_rgb": "161,198,40"},
     {"object": "grouping", "type": "sdo", "colour_rgb": "163,53,139"},
-    {"object": "identity", "type": "sdo", "colour_rgb": "146,150,151"},
-    {"object": "identity_group", "type": "sdo", "colour_rgb": "146,150,151"},
-    {"object": "identity_system", "type": "sdo", "colour_rgb": "146,150,151"},
-    {"object": "identity_organization", "type": "sdo", "colour_rgb": "146,150,151"},
-    {"object": "identity_individual", "type": "sdo", "colour_rgb": "146,150,151"},
-    {"object": "identity_class", "type": "sdo", "colour_rgb": "146,150,151"},
+    {"object": "identity", "type": "sdo", "colour_rgb": "156,154,254"},
+    {"object": "identity_group", "type": "sdo", "colour_rgb": "156,154,254"},
+    {"object": "identity_system", "type": "sdo", "colour_rgb": "156,154,254"},
+    {"object": "identity_organization", "type": "sdo", "colour_rgb": "156,154,254"},
+    {"object": "identity_individual", "type": "sdo", "colour_rgb": "156,154,254"},
+    {"object": "identity_class", "type": "sdo", "colour_rgb": "156,154,254"},
     {"object": "incident", "type": "sdo", "colour_rgb": "251,182,22"},
     {"object": "indicator", "type": "sdo", "colour_rgb": "220,149,71"},
     {"object": "infrastructure", "type": "sdo", "colour_rgb": "174,215,191"},
     {"object": "intrusion-set", "type": "sdo", "colour_rgb": "56,178,193"},
-    {"object": "location", "type": "sdo", "colour_rgb": "80,86,87"},
+    {"object": "location", "type": "sdo", "colour_rgb": "252,159,157"},
     {"object": "malware", "type": "sdo", "colour_rgb": "212,163,203"},
     {"object": "malware_family", "type": "sdo", "colour_rgb": "221,140,187"},
     {"object": "malware-analysis", "type": "sdo", "colour_rgb": "231,118,172"},
-    {"object": "note", "type": "sdo", "colour_rgb": "80,86,87"},
-    {"object": "observed-data", "type": "sdo", "colour_rgb": "0,0,0"},
-    {"object": "opinion", "type": "sdo", "colour_rgb": "80,86,87"},
+    {"object": "note", "type": "sdo", "colour_rgb": "136,200,129"},
+    {"object": "observed-data", "type": "sdo", "colour_rgb": "252,204,184"},
+    {"object": "opinion", "type": "sdo", "colour_rgb": "144,157,199"},
     {"object": "report", "type": "sdo", "colour_rgb": "119,146,121"},
     {"object": "threat-actor", "type": "sdo", "colour_rgb": "230,27,92"},
     {"object": "tool", "type": "sdo", "colour_rgb": "87,80,157"},
@@ -71,11 +71,11 @@ objects = [
     {"object": "cryptocurrency-wallet", "type": "sco", "colour_rgb": "156,218,184"},
     {"object": "phone-number", "type": "sco", "colour_rgb": "226,189,239"},
     {"object": "user-agent", "type": "sco", "colour_rgb": "152,199,239"},
-    {"object": "relationship", "type": "sro", "colour_rgb": "205,214,216"},
+    {"object": "relationship", "type": "sro", "colour_rgb": "148,243,139"},
     {"object": "sighting", "type": "sro", "colour_rgb": "235,94,42"},
     {"object": "language-content", "type": "smo", "colour_rgb": "255,23,68"},
-    {"object": "marking-definition", "type": "smo", "colour_rgb": "38,198,218"},
-    {"object": "extension-definition", "type": "smo", "colour_rgb": "178,255,89"}
+    {"object": "extension-definition", "type": "smo", "colour_rgb": "176,215,153"},
+    {"object": "marking-definition", "type": "smo", "colour_rgb": "38,198,218"}
 ]
 
 def find_colour_rgb(object_name, color='rgb'):
@@ -93,7 +93,7 @@ def process_svg(svg_content, colour_rgb):
     svg_content = svg_content.replace('<path', f'<path style="fill:rgb({colour_rgb})"')
     svg_content = svg_content.replace('<rect', f'<rect style="fill:rgb({colour_rgb})"')
     svg_content = svg_content.replace('<circle', f'<circle style="fill:rgb({colour_rgb})"')
-    svg_content = svg_content.replace('<ellipse', f'<circle style="fill:rgb({colour_rgb})"')
+    svg_content = svg_content.replace('<ellipse', f'<ellipse style="fill:rgb({colour_rgb})"')
     return svg_content
 
 def convert_svg_to_png(svg_path, png_path):
@@ -129,44 +129,6 @@ def process_directory(input_dir, output_dir, png_dir, color='rgb'):
                     convert_svg_to_png(output_path, png_output_path)
                     print(f"Processed {svg_path} -> {output_path} and {png_output_path}")
 
-def process_tlp_icons():
-    special_icons = [
-        {"object": "marking-definition_tlp_white", "type": "smo", "colour_rgb": "255,255,255"},
-        {"object": "marking-definition_tlp_clear", "type": "smo", "colour_rgb": "255,255,255"},
-        {"object": "marking-definition_tlp_green", "type": "smo", "colour_rgb": "51,255,0"},
-        {"object": "marking-definition_tlp_amber", "type": "smo", "colour_rgb": "255,192,0"},
-        {"object": "marking-definition_tlp_amber_strict", "type": "smo", "colour_rgb": "255,192,0"},
-        {"object": "marking-definition_tlp_red", "type": "smo", "colour_rgb": "255,0,51"}
-    ]
-
-    input_normal_svg = "input_vectors/normal/smo/marking-definition_tlp.svg"
-    #input_round_svg = "input_vectors/round/smo/marking-definition_tlp.svg"
-
-    for icon in special_icons:
-        object_name = icon["object"]
-        colour_rgb = icon["colour_rgb"]
-
-        for input_svg, output_dir, png_dir in [
-            (input_normal_svg, output_normal_dir, output_normal_png_dir),
-            #(input_round_svg, output_round_dir, output_round_png_dir)
-        ]:
-            output_svg_path = os.path.join(output_dir, "smo", f"{object_name}.svg")
-            output_png_path = os.path.join(png_dir, "smo", f"{object_name}.png")
-
-            os.makedirs(os.path.dirname(output_svg_path), exist_ok=True)
-            os.makedirs(os.path.dirname(output_png_path), exist_ok=True)
-
-            with open(input_svg, 'r') as file:
-                svg_content = file.read()
-
-            processed_svg = process_svg(svg_content, colour_rgb)
-
-            with open(output_svg_path, 'w') as file:
-                file.write(processed_svg)
-
-            convert_svg_to_png(output_svg_path, output_png_path)
-            print(f"Processed {input_svg} -> {output_svg_path} and {output_png_path}")
-
 def generate_markdown_table():
     markdown_table = "| Object | Type | RGB | RGB Circle | Black | Black Circle | White | White Circle |\n"
     markdown_table += "|--------|------|-----|-----------|-------|-------------|-------|-------------|\n"
@@ -183,7 +145,13 @@ def generate_markdown_table():
 
         markdown_table += f"| {object_name} | {object_type} | ![]({rgb_png}) | ![]({rgb_circle_png}) | ![]({black_png}) | ![]({black_circle_png}) | ![]({white_png}) | ![]({white_circle_png}) |\n"
     
-    print(markdown_table)
+    return markdown_table
+
+def save_markdown_table_to_file():
+    markdown_table = generate_markdown_table()
+    with open("objects.md", "w") as file:
+        file.write(markdown_table)
+    print("Markdown table has been saved to objects.md")
 
 # Track failed files
 failed_files = []
@@ -201,11 +169,8 @@ process_directory(input_round_dir, output_black_round_dir, output_black_round_pn
 process_directory(input_normal_dir, output_white_normal_dir, output_white_normal_png_dir, color='white')
 process_directory(input_round_dir, output_white_round_dir, output_white_round_png_dir, color='white')
 
-# Process the special icons
-process_tlp_icons()
-
-# Generate and print the Markdown table
-generate_markdown_table()
+# Save the Markdown table to a file
+save_markdown_table_to_file()
 
 # Print list of files that were not created
 if failed_files:
