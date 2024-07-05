@@ -95,10 +95,6 @@ output/
 | user-agent | sco | ![](output_files/rgb/normal/png/sco/user-agent.png) | ![](output_files/rgb/round/png/sco/user-agent.png) | ![](output_files/black/normal/png/sco/user-agent.png) | ![](output_files/black/round/png/sco/user-agent.png) | ![](output_files/white/normal/png/sco/user-agent.png) | ![](output_files/white/round/png/sco/user-agent.png) |
 | relationship | sro | ![](output_files/rgb/normal/png/sro/relationship.png) | ![](output_files/rgb/round/png/sro/relationship.png) | ![](output_files/black/normal/png/sro/relationship.png) | ![](output_files/black/round/png/sro/relationship.png) | ![](output_files/white/normal/png/sro/relationship.png) | ![](output_files/white/round/png/sro/relationship.png) |
 | sighting | sro | ![](output_files/rgb/normal/png/sro/sighting.png) | ![](output_files/rgb/round/png/sro/sighting.png) | ![](output_files/black/normal/png/sro/sighting.png) | ![](output_files/black/round/png/sro/sighting.png) | ![](output_files/white/normal/png/sro/sighting.png) | ![](output_files/white/round/png/sro/sighting.png) |
-| language-content | smo | ![](output_files/rgb/normal/png/smo/language-content.png) | ![](output_files/rgb/round/png/smo/language-content.png) | ![](output_files/black/normal/png/smo/language-content.png) | ![](output_files/black/round/png/smo/language-content.png) | ![](output_files/white/normal/png/smo/language-content.png) | ![](output_files/white/round/png/smo/language-content.png) |
-| extension-definition | smo | ![](output_files/rgb/normal/png/smo/extension-definition.png) | ![](output_files/rgb/round/png/smo/extension-definition.png) | ![](output_files/black/normal/png/smo/extension-definition.png) | ![](output_files/black/round/png/smo/extension-definition.png) | ![](output_files/white/normal/png/smo/extension-definition.png) | ![](output_files/white/round/png/smo/extension-definition.png) |
-| marking-definition | smo | ![](output_files/rgb/normal/png/smo/marking-definition.png) | ![](output_files/rgb/round/png/smo/marking-definition.png) | ![](output_files/black/normal/png/smo/marking-definition.png) | ![](output_files/black/round/png/smo/marking-definition.png) | ![](output_files/white/normal/png/smo/marking-definition.png) | ![](output_files/white/round/png/smo/marking-definition.png) |
-
 
 ## Adding your own objects
 
@@ -122,16 +118,14 @@ input_vectors/
 ├── normal/
 │   ├── sco/
 │   ├── sdo/
-│   ├── smo/
 │   └── sro/
 └── round/
     ├── sco/
     ├── sdo/
-    ├── smo/
     └── sro/
 ```
 
-Where `sco`, `sdo`, `smo`, or `sro` is the type of STIX object.
+Where `sco`, `sdo`, or `sro` is the type of STIX object.
 
 When adding objects you should:
 

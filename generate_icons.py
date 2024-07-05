@@ -72,10 +72,7 @@ objects = [
     {"object": "phone-number", "type": "sco", "colour_rgb": "226,189,239"},
     {"object": "user-agent", "type": "sco", "colour_rgb": "152,199,239"},
     {"object": "relationship", "type": "sro", "colour_rgb": "148,243,139"},
-    {"object": "sighting", "type": "sro", "colour_rgb": "235,94,42"},
-    {"object": "language-content", "type": "smo", "colour_rgb": "255,23,68"},
-    {"object": "extension-definition", "type": "smo", "colour_rgb": "176,215,153"},
-    {"object": "marking-definition", "type": "smo", "colour_rgb": "38,198,218"}
+    {"object": "sighting", "type": "sro", "colour_rgb": "235,94,42"}
 ]
 
 def find_colour_rgb(object_name, color='rgb'):
