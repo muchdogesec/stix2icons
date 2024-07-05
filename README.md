@@ -4,7 +4,11 @@
 
 stix2icons is a collection of icons that represent all the of core STIX objects. The aim is to provide a central source of icons that can be used to represent STIX objects by software tools (or anything else).
 
-This repo is designed so that new icons can be added for custom STIX objects you're developing. See: "Adding your own objects"
+This repo is designed so that new icons can be added for custom STIX objects you're developing. See: "Adding your own objects".
+
+## tl;dr
+
+[![stix2icons](https://img.youtube.com/vi/U5KIsulBN9E/0.jpg)](https://www.youtube.com/watch?v=U5KIsulBN9E)
 
 ## Where to find icons in this repository
 
