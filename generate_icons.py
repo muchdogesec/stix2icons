@@ -86,6 +86,10 @@ def find_colour_rgb(object_name, color='rgb'):
                 return obj['colour_rgb']
     return None
 
+def rgb_to_hex(rgb):
+    r, g, b = map(int, rgb.split(','))
+    return f"#{r:02x}{g:02x}{b:02x}"
+
 def process_svg(svg_content, colour_rgb):
     svg_content = svg_content.replace('<path', f'<path style="fill:rgb({colour_rgb})"')
     svg_content = svg_content.replace('<rect', f'<rect style="fill:rgb({colour_rgb})"')
@@ -127,12 +131,14 @@ def process_directory(input_dir, output_dir, png_dir, color='rgb'):
                     print(f"Processed {svg_path} -> {output_path} and {png_output_path}")
 
 def generate_markdown_table():
-    markdown_table = "| Object | Type | RGB | RGB Circle | Black | Black Circle | White | White Circle |\n"
-    markdown_table += "|--------|------|-----|-----------|-------|-------------|-------|-------------|\n"
+    markdown_table = "| Object | Type | RGB | HEX | RGB Icon | RGB Circle Icon | Black Icon | Black Circle Icon | White Icon | White Circle Icon |\n"
+    markdown_table += "|--------|------|-----|-----|----------|-----------------|------------|------------------|------------|------------------|\n"
     
     for obj in objects:
         object_name = obj['object']
         object_type = obj['type']
+        colour_rgb = obj['colour_rgb']
+        colour_hex = rgb_to_hex(colour_rgb)
         rgb_png = os.path.join(output_normal_png_dir, object_type, f"{object_name}.png")
         rgb_circle_png = os.path.join(output_round_png_dir, object_type, f"{object_name}.png")
         black_png = os.path.join(output_black_normal_png_dir, object_type, f"{object_name}.png")
@@ -140,7 +146,7 @@ def generate_markdown_table():
         white_png = os.path.join(output_white_normal_png_dir, object_type, f"{object_name}.png")
         white_circle_png = os.path.join(output_white_round_png_dir, object_type, f"{object_name}.png")
 
-        markdown_table += f"| {object_name} | {object_type} | ![]({rgb_png}) | ![]({rgb_circle_png}) | ![]({black_png}) | ![]({black_circle_png}) | ![]({white_png}) | ![]({white_circle_png}) |\n"
+        markdown_table += f"| {object_name} | {object_type} | {colour_rgb} | {colour_hex} | ![]({rgb_png}) | ![]({rgb_circle_png}) | ![]({black_png}) | ![]({black_circle_png}) | ![]({white_png}) | ![]({white_circle_png}) |\n"
     
     return markdown_table
 

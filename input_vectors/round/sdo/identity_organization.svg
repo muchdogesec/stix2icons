@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--https://github.com/muchdogesec/stix2icons/-->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85 85" id="identity_organization">
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85 85" id="identity_organization">
   <rect x="49.74" y="41.11" width="7.05" height="14.12"/>
   <rect x="38.97" y="41.11" width="7.05" height="14.12"/>
   <rect x="28.2" y="41.11" width="7.05" height="14.12"/>

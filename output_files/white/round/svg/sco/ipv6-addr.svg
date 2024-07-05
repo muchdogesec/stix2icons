@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--https://github.com/muchdogesec/stix2icons/-->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85 85" id="ipv6-addr">
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85 85" id="ipv6-addr">
 	<circle style="fill:rgb(255,255,255)" cx="38.8" cy="28.6" r="2.9"/>
 	<path style="fill:rgb(255,255,255)" d="M42.5,0C19,0,0,19,0,42.5S19,85,42.5,85S85,66,85,42.5S66,0,42.5,0z M43.2,42.5v20.6c0,0.4-0.3,0.7-0.7,0.7s-0.7-0.3-0.7-0.7V42.5c-5.7-0.4-10.3-5.1-10.3-11c0-6.1,4.9-11,11-11c6.1,0,11,4.9,11,11C53.4,37.3,48.9,42.1,43.2,42.5z"/>
 </svg>

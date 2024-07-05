@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--https://github.com/muchdogesec/stix2icons/-->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85 85" id="bank-card">
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85 85" id="bank-card">
 	<path style="fill:rgb(0,0,0)" d="M25.3,49.1h4.5c0.5,0,1-0.4,1-1s-0.4-1-1-1h-4.5c-0.5,0-1,0.4-1,1S24.8,49.1,25.3,49.1z"/>
 	<path style="fill:rgb(0,0,0)" d="M25.3,42.6h5.8c0.5,0,1-0.4,1-1v-4.2c0-0.5-0.4-1-1-1h-5.8c-0.5,0-1,0.4-1,1v4.2C24.4,42.2,24.8,42.6,25.3,42.6z"/>
 	<path style="fill:rgb(0,0,0)" d="M34,49.1h4.5c0.5,0,1-0.4,1-1s-0.4-1-1-1H34c-0.5,0-1,0.4-1,1S33.5,49.1,34,49.1z"/>
