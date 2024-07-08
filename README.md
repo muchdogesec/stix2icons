@@ -157,6 +157,8 @@ python3 generate_icons.py
 
 This will generate a black, white and colour version of your object as an `svg` and `png` (256x256).
 
+If you want us to publish your icon in this repository for everyone to use, make a pull request after following all the steps above.
+
 ## Credits
 
 * [This work is an expansion of the STIX objects created by EclecticIQ](https://github.com/eclecticiq/stix-icons/)
