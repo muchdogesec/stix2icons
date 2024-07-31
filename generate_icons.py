@@ -63,7 +63,7 @@ objects = [
     {"object": "bank-card", "type": "sco", "colour_rgb": "145,178,181"},
     {"object": "cryptocurrency-transaction", "type": "sco", "colour_rgb": "222,233,167"},
     {"object": "cryptocurrency-wallet", "type": "sco", "colour_rgb": "156,218,184"},
-    {"object": "cryptocurrency-exchange.svg", "type": "sco", "colour_rgb": "0,0,255"},
+    {"object": "cryptocurrency-exchange", "type": "sco", "colour_rgb": "0,0,255"},
     {"object": "phone-number", "type": "sco", "colour_rgb": "226,189,239"},
     {"object": "user-agent", "type": "sco", "colour_rgb": "152,199,239"},
     {"object": "relationship", "type": "sro", "colour_rgb": "148,243,139"},
