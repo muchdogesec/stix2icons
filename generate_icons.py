@@ -21,6 +21,7 @@ output_white_round_dir = os.path.join(output_white_dir, "round/svg")
 output_white_round_png_dir = os.path.join(output_white_dir, "round/png")
 
 objects = [
+    # sdo - core
     {"object": "attack-pattern", "type": "sdo", "colour_rgb": "34,119,181"},
     {"object": "campaign", "type": "sdo", "colour_rgb": "80,182,30"},
     {"object": "course-of-action", "type": "sdo", "colour_rgb": "161,198,40"},
@@ -40,7 +41,18 @@ objects = [
     {"object": "threat-actor", "type": "sdo", "colour_rgb": "230,27,92"},
     {"object": "tool", "type": "sdo", "colour_rgb": "87,80,157"},
     {"object": "vulnerability", "type": "sdo", "colour_rgb": "255,209,0"},
-    {"object": "weakness", "type": "sdo", "colour_rgb": "94,49,128"},
+    # sdo - custom
+    {"object": "weakness", "type": "sdo", "colour_rgb": "26,61,109"},
+    {"object": "exploit", "type": "sdo", "colour_rgb": "0,132,80"},
+    # sdo - MITRE ATT&CK
+    {"object": "x-mitre-tactic", "type": "sdo", "colour_rgb": "198,40,40"},
+    {"object": "x-mitre-asset", "type": "sdo", "colour_rgb": "26,188,156"},
+    {"object": "x-mitre-data-source", "type": "sdo", "colour_rgb": "255,112,67"},
+    {"object": "x-mitre-data-component", "type": "sdo", "colour_rgb": "94,49,128"},
+    # sdo - Attack Flow
+    {"object": "attack-flow", "type": "sdo", "colour_rgb": "94,49,128"},
+    {"object": "attack-action", "type": "sdo", "colour_rgb": "94,49,128"},
+    # sco - core
     {"object": "artifact", "type": "sco", "colour_rgb": "149,229,250"},
     {"object": "autonomous-system", "type": "sco", "colour_rgb": "161,248,128"},
     {"object": "directory", "type": "sco", "colour_rgb": "183,245,206"},
@@ -59,6 +71,7 @@ objects = [
     {"object": "user-account", "type": "sco", "colour_rgb": "213,191,132"},
     {"object": "windows-registry-key", "type": "sco", "colour_rgb": "132,196,170"},
     {"object": "x509-certificate", "type": "sco", "colour_rgb": "246,160,242"},
+    # sco - custom
     {"object": "bank-account", "type": "sco", "colour_rgb": "232,228,170"},
     {"object": "bank-card", "type": "sco", "colour_rgb": "145,178,181"},
     {"object": "cryptocurrency-transaction", "type": "sco", "colour_rgb": "222,233,167"},
@@ -66,8 +79,13 @@ objects = [
     {"object": "cryptocurrency-exchange", "type": "sco", "colour_rgb": "0,0,255"},
     {"object": "phone-number", "type": "sco", "colour_rgb": "226,189,239"},
     {"object": "user-agent", "type": "sco", "colour_rgb": "152,199,239"},
-    {"object": "relationship", "type": "sro", "colour_rgb": "148,243,139"},
-    {"object": "sighting", "type": "sro", "colour_rgb": "235,94,42"}
+    # sro - core
+    {"object": "relationship", "type": "sro", "colour_rgb": "51,51,51"},
+    {"object": "sighting", "type": "sro", "colour_rgb": "255,87,34"},
+    # smo - core
+    {"object": "extension-definition", "type": "smo", "colour_rgb": "253,250,246"},
+    {"object": "marking-definition", "type": "smo", "colour_rgb": "224,224,224"},
+    {"object": "language-content", "type": "smo", "colour_rgb": "139,125,123"}
 ]
 
 def find_colour_rgb(object_name, color='rgb'):
