@@ -159,7 +159,7 @@ def generate_markdown_table():
     
     for obj in objects:
         object_name = obj['object']
-        object_type = obj['type']
+        object_type = obj['type'].lower()
         colour_rgb = obj['colour_rgb']
         colour_hex = rgb_to_hex(colour_rgb)
         rgb_png = os.path.join(output_normal_png_dir, object_type, f"{object_name}.png")
