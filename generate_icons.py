@@ -54,6 +54,8 @@ objects = [
     {"object": "x-mitre-asset", "type": "SDO", "colour_rgb": "0, 255, 127", "description": "neon spring green"},
     {"object": "x-mitre-data-source", "type": "SDO", "colour_rgb": "0, 188, 212", "description": "bright aqua blue"},
     {"object": "x-mitre-data-component", "type": "SDO", "colour_rgb": "63, 81, 181", "description": "indigo blue"},
+    {"object": "x-mitre-collection", "type": "SDO", "colour_rgb": "156, 39, 176", "description": "vivid violet purple"},
+    {"object": "x-mitre-matrix", "type": "SDO", "colour_rgb": "255, 193, 7", "description": "golden amber yellow"},
 
     # SDO - Attack Flow
     {"object": "attack-flow", "type": "SDO", "colour_rgb": "156, 39, 176", "description": "vivid violet purple"},
