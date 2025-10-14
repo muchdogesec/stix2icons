@@ -83,7 +83,7 @@ objects = [
 
     # SCO - custom
     {"object": "bank-account", "type": "SCO", "colour_rgb": "232,228,170", "description": "pale sand yellow"},
-    {"object": "bank-card", "type": "SCO", "colour_rgb": "145,178,181", "description": "muted teal grey"},
+    {"object": "payment-card", "type": "SCO", "colour_rgb": "145,178,181", "description": "muted teal grey"},
     {"object": "cryptocurrency-transaction", "type": "SCO", "colour_rgb": "222,233,167", "description": "pastel olive green"},
     {"object": "cryptocurrency-wallet", "type": "SCO", "colour_rgb": "156,218,184", "description": "mint teal"},
     {"object": "cryptocurrency-exchange", "type": "SCO", "colour_rgb": "173,205,255", "description": "pastel cornflower blue"},
