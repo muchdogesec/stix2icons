@@ -45,6 +45,7 @@ objects = [
     # SDO - custom
     {"object": "weakness", "type": "SDO", "colour_rgb": "94,49,128", "description": "dark violet purple"},
     {"object": "exploit", "type": "SDO", "colour_rgb": "0,132,80", "description": "emerald green"},
+    {"object": "data-source", "type": "SDO", "colour_rgb": "96, 125, 139", "description": "muted steel blue"},
 
     # SDO - MITRE ATT&CK
     {"object": "x-mitre-detection-strategy", "type": "SDO", "colour_rgb": "0, 191, 255", "description": "vivid cyan blue"},
