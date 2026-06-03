@@ -89,6 +89,7 @@ objects = [
     {"object": "cryptocurrency-transaction", "type": "SCO", "colour_rgb": "222,233,167", "description": "pastel olive green"},
     {"object": "cryptocurrency-wallet", "type": "SCO", "colour_rgb": "156,218,184", "description": "mint teal"},
     {"object": "cryptocurrency-exchange", "type": "SCO", "colour_rgb": "173,205,255", "description": "pastel cornflower blue"},
+    {"object": "ai-prompt", "type": "SCO", "colour_rgb": "179,192,243", "description": "soft periwinkle blue"},
     {"object": "phone-number", "type": "SCO", "colour_rgb": "226,189,239", "description": "soft lilac"},
     {"object": "user-agent", "type": "SCO", "colour_rgb": "152,199,239", "description": "powder blue"},
 
